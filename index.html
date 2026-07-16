@@ -1,1 +1,427 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rappre 2026 - Lista Rappresentanti</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f3460, #16213e);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      opacity: 0.85;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #e94560;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.2rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      min-width: 160px;
+    }
+
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0f3460;
+    }
+
+    .stat-card .label {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 0.2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, #0f3460, #533483);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .card-header .info h3 {
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .card-header .info .ruolo {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.8rem;
+      margin-top: 0.15rem;
+    }
+
+    .card-body {
+      padding: 1.2rem 1.5rem;
+    }
+
+    .card-body .detail {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .card-body .detail .icon {
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+      opacity: 0.5;
+    }
+
+    .card-body .detail a {
+      color: #0f3460;
+      text-decoration: none;
+    }
+
+    .card-body .detail a:hover {
+      text-decoration: underline;
+    }
+
+    .card-footer {
+      border-top: 1px solid #eee;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-footer .zone {
+      background: #eef2ff;
+      color: #0f3460;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .card-footer .status {
+      font-size: 0.75rem;
+      color: #2ecc71;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card-footer .status::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: #2ecc71;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #0f3460;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.7rem; }
+      .grid { grid-template-columns: 1fr; }
+      .stats { gap: 1rem; }
+      .stat-card { min-width: 120px; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Rappre 2026</h1>
+  <p>La tua squadra di rappresentanti di zona</p>
+  <span class="badge">Edizione 2026</span>
+</header>
+
+<main>
+  <div class="stats">
+    <div class="stat-card">
+      <div class="number">8</div>
+      <div class="label">Rappresentanti</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">5</div>
+      <div class="label">Zone</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">100%</div>
+      <div class="label">Attivi</div>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar">MR</div>
+        <div class="info">
+          <h3>Mario Rossi</h3>
+          <div class="ruolo">Responsabile Zona Nord</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="detail"><span class="icon">&#9993;</span> mario.rossi@email.com</div>
+        <div class="detail"><span class="icon">&#9742;</span> +39 333 123 4567</div>
+        <div class="detail"><span class="icon">&#9873;</span> Quartiere Nord, Torino</div>
+      </div>
+      <div class="card-footer">
+        <span class="zone">Zona Nord</span>
+        <span class="status">Attivo</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar">LB</div>
+        <div class="info">
+          <h3>Laura Bianchi</h3>
+          <div class="ruolo">Responsabile Zona Sud</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="detail"><span class="icon">&#9993;</span> laura.bianchi@email.com</div>
+        <div class="detail"><span class="icon">&#9742;</span> +39 333 234 5678</div>
+        <div class="detail"><span class="icon">&#9873;</span> Quartiere Sud, Torino</div>
+      </div>
+      <div class="card-footer">
+        <span class="zone">Zona Sud</span>
+        <span class="status">Attivo</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar">GV</div>
+        <div class="info">
+          <h3>Giovanni Verdi</h3>
+          <div class="ruolo">Responsabile Zona Est</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="detail"><span class="icon">&#9993;</span> giovanni.verdi@email.com</div>
+        <div class="detail"><span class="icon">&#9742;</span> +39 333 345 6789</div>
+        <div class="detail"><span class="icon">&#9873;</span> Quartiere Est, Torino</div>
+      </div>
+      <div class="card-footer">
+        <span class="zone">Zona Est</span>
+        <span class="status">Attivo</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar">FN</div>
+        <div class="info">
+          <h3>Francesca Neri</h3>
+          <div class="ruolo">Responsabile Zona Ovest</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="detail"><span class="icon">&#9993;</span> francesca.neri@email.com</div>
+        <div class="detail"><span class="icon">&#9742;</span> +39 333 456 7890</div>
+        <div class="detail"><span class="icon">&#9873;</span> Quartiere Ovest, Torino</div>
+      </div>
+      <div class="card-footer">
+        <span class="zone">Zona Ovest</span>
+        <span class="status">Attivo</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar">LM</div>
+        <div class="info">
+          <h3>Luca Moretti</h3>
+          <div class="ruolo">Responsabile Zona Centro</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="detail"><span class="icon">&#9993;</span> luca.moretti@email.com</div>
+        <div class="detail"><span class="icon">&#9742;</span> +39 333 567 8901</div>
+        <div class="detail"><span class="icon">&#9873;</span> Centro Storico, Torino</div>
+      </div>
+      <div class="card-footer">
+        <span class="zone">Zona Centro</span>
+        <span class="status">Attivo</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar">AC</div>
+        <div class="info">
+          <h3>Anna Colombo</h3>
+          <div class="ruolo">Rappresentante Zona Nord</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="detail"><span class="icon">&#9993;</span> anna.colombo@email.com</div>
+        <div class="detail"><span class="icon">&#9742;</span> +39 333 678 9012</div>
+        <div class="detail"><span class="icon">&#9873;</span> Barriera di Milano, Torino</div>
+      </div>
+      <div class="card-footer">
+        <span class="zone">Zona Nord</span>
+        <span class="status">Attivo</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar">PF</div>
+        <div class="info">
+          <h3>Paolo Ferrari</h3>
+          <div class="ruolo">Rappresentante Zona Est</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="detail"><span class="icon">&#9993;</span> paolo.ferrari@email.com</div>
+        <div class="detail"><span class="icon">&#9742;</span> +39 333 789 0123</div>
+        <div class="detail"><span class="icon">&#9873;</span> Crocetta, Torino</div>
+      </div>
+      <div class="card-footer">
+        <span class="zone">Zona Est</span>
+        <span class="status">Attivo</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="avatar">SG</div>
+        <div class="info">
+          <h3>Sara Greco</h3>
+          <div class="ruolo">Rappresentante Zona Sud</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="detail"><span class="icon">&#9993;</span> sara.greco@email.com</div>
+        <div class="detail"><span class="icon">&#9742;</span> +39 333 890 1234</div>
+        <div class="detail"><span class="icon">&#9873;</span> San Salvario, Torino</div>
+      </div>
+      <div class="card-footer">
+        <span class="zone">Zona Sud</span>
+        <span class="status">Attivo</span>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Rappre - Tutti i diritti riservati | <a href="#">Contattaci</a></p>
+</footer>
+
+</body>
+</html>
