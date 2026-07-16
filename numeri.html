@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rappre 2026 - Home</title>
+  <title>Rappre 2026 - Numeri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -24,10 +24,9 @@
     .pa-nav a { text-decoration: none; color: #17324d; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s; }
     .pa-nav a:hover, .pa-nav a.active { background: #0066cc; color: #fff; }
 
-    .pa-hero { background: linear-gradient(135deg, #17324d 0%, #0066cc 100%); color: #fff; padding: 5rem 2rem; text-align: center; }
-    .pa-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.15; }
-    .pa-hero p { margin-top: 1rem; font-size: 1.15rem; opacity: 0.85; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-    .pa-hero .badge-anno { display: inline-block; margin-top: 1.5rem; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 0.4rem 1.2rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; }
+    .pa-hero-sub { background: linear-gradient(135deg, #17324d 0%, #0066cc 100%); color: #fff; padding: 4rem 2rem; text-align: center; }
+    .pa-hero-sub h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
+    .pa-hero-sub p { margin-top: 0.8rem; font-size: 1.1rem; opacity: 0.85; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
     .pa-content { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
     .pa-breadcrumb { font-size: 0.8rem; color: #5b6f82; margin-bottom: 2rem; }
@@ -38,16 +37,22 @@
     .pa-section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: #17324d; margin-bottom: 0.8rem; }
     .pa-section-desc { font-size: 1.05rem; color: #5b6f82; max-width: 700px; line-height: 1.65; }
 
-    .pa-numeri { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    .pa-num-box { background: #fff; border: 1px solid #d9dadb; border-radius: 4px; padding: 2rem 1.5rem; text-align: center; }
-    .pa-num-box .num { font-size: 2.8rem; font-weight: 700; color: #0066cc; line-height: 1; }
-    .pa-num-box .lbl { font-size: 0.85rem; color: #5b6f82; margin-top: 0.5rem; }
+    .pa-numeri-big { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    .pa-num-big { background: #fff; border: 1px solid #d9dadb; border-radius: 4px; padding: 2.5rem 2rem; text-align: center; }
+    .pa-num-big .num { font-size: 3.5rem; font-weight: 700; color: #0066cc; line-height: 1; }
+    .pa-num-big .lbl { font-size: 1rem; color: #5b6f82; margin-top: 0.5rem; font-weight: 600; }
+    .pa-num-big .desc { font-size: 0.85rem; color: #8e8e93; margin-top: 0.3rem; }
 
-    .pa-highlight { background: #fff; border: 1px solid #d9dadb; border-left: 4px solid #0066cc; border-radius: 4px; padding: 2rem 2.5rem; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .pa-highlight h3 { font-size: 1.2rem; font-weight: 700; }
-    .pa-highlight p { color: #5b6f82; font-size: 0.95rem; }
-    .pa-btn { display: inline-block; background: #0066cc; color: #fff; text-decoration: none; padding: 0.6rem 1.5rem; border-radius: 4px; font-size: 0.9rem; font-weight: 600; transition: background 0.2s; }
-    .pa-btn:hover { background: #0052a3; }
+    .pa-chart-section { background: #fff; border: 1px solid #d9dadb; border-radius: 4px; padding: 2rem; margin-top: 2rem; }
+    .pa-chart-title { font-size: 1.1rem; font-weight: 700; color: #17324d; margin-bottom: 1.5rem; }
+
+    .bar-chart { display: flex; flex-direction: column; gap: 1rem; }
+    .bar-row { display: flex; align-items: center; gap: 1rem; }
+    .bar-label { min-width: 120px; font-size: 0.88rem; color: #5b6f82; text-align: right; }
+    .bar-track { flex: 1; height: 28px; background: #f5f6f7; border-radius: 4px; overflow: hidden; }
+    .bar-fill { height: 100%; background: #0066cc; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 0.6rem; font-size: 0.75rem; color: #fff; font-weight: 600; min-width: 40px; transition: width 0.8s ease; }
+    .bar-fill.verde { background: #00875a; }
+    .bar-fill.arancio { background: #e37400; }
 
     .pa-footer { background: #17324d; color: #fff; padding: 2.5rem 2rem; }
     .pa-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -58,7 +63,7 @@
     .pa-footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); max-width: 1200px; margin: 1.5rem auto 0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.75rem; opacity: 0.5; }
 
     @media (max-width: 768px) {
-      .pa-numeri { grid-template-columns: repeat(2, 1fr); }
+      .pa-numeri-big { grid-template-columns: 1fr; }
       .pa-header-inner { flex-wrap: wrap; }
       .pa-nav { margin-left: 0; }
       .pa-footer-inner { flex-direction: column; text-align: center; }
@@ -82,62 +87,104 @@
       </div>
     </a>
     <div class="pa-nav">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="rappresentanti.html">Rappresentanti</a>
       <a href="attivita.html">Attività</a>
       <a href="assemblea.html">Assemblea</a>
-      <a href="numeri.html">Numeri</a>
+      <a href="numeri.html" class="active">Numeri</a>
     </div>
   </div>
 </div>
 
-<div class="pa-hero">
-  <h1>Rappresentanti d'Istituto</h1>
-  <p>La rappresentanza studentesca al servizio della comunità scolastica. Trasparenza, partecipazione e risultati.</p>
-  <span class="badge-anno">A.S. 2025 / 2026</span>
+<div class="pa-hero-sub">
+  <h1>Numeri dell'anno</h1>
+  <p>I dati che raccontano il lavoro svolto dal consiglio d'istituto durante l'anno scolastico.</p>
 </div>
 
 <div class="pa-content">
 
   <div class="pa-breadcrumb">
-    <a href="index.html">Home</a>
+    <a href="index.html">Home</a> &rsaquo; Numeri
   </div>
 
   <div class="pa-section">
-    <span class="pa-section-label">Missione</span>
-    <div class="pa-section-title">Tutelare i diritti degli studenti</div>
+    <span class="pa-section-label">Riepilogo</span>
+    <div class="pa-section-title">I dati chiave</div>
     <p class="pa-section-desc">
-      Il Consiglio d'Istituto è l'organo elettivo e democratico che rappresenta
-      gli studenti presso la comunità scolastica. I rappresentanti ascoltano,
-      raccolgono proposte e le portano avanti nelle sedi istituzionali.
+      Un anno di lavoro misurato nei numeri: rappresentanti, assemblee,
+      proposte e studenti coinvolti.
     </p>
   </div>
 
-  <div class="pa-numeri">
-    <div class="pa-num-box">
+  <div class="pa-numeri-big">
+    <div class="pa-num-big">
       <div class="num">4</div>
-      <div class="lbl">Rappresentanti</div>
+      <div class="lbl">Rappresentanti in carica</div>
+      <div class="desc">Presidente, Vicepresidente e 2 Consiglieri</div>
     </div>
-    <div class="pa-num-box">
+    <div class="pa-num-big">
       <div class="num">5</div>
       <div class="lbl">Assemblee tenute</div>
+      <div class="desc">Costitutiva + 4 trimestrali</div>
     </div>
-    <div class="pa-num-box">
+    <div class="pa-num-big">
       <div class="num">12</div>
       <div class="lbl">Proposte approvate</div>
+      <div class="desc">Su 18 presentate (67% tasso di successo)</div>
     </div>
-    <div class="pa-num-box">
+    <div class="pa-num-big">
       <div class="num">850+</div>
       <div class="lbl">Studenti rappresentati</div>
+      <div class="desc">Tra Liceo, Scientifico, Linguistico e ITIS</div>
     </div>
   </div>
 
-  <div class="pa-highlight">
-    <div>
-      <h3>Scopri il nostro team</h4>
-      <p>Conosci i quattro rappresentanti eletti dagli studenti.</p>
+  <div class="pa-chart-section">
+    <div class="pa-chart-title">Partecipazione alle assemblee</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">Costitutiva</div>
+        <div class="bar-track"><div class="bar-fill" style="width: 100%;">350</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Inizio anno</div>
+        <div class="bar-track"><div class="bar-fill" style="width: 83%;">290</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Q2</div>
+        <div class="bar-track"><div class="bar-fill" style="width: 74%;">260</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Q3</div>
+        <div class="bar-track"><div class="bar-fill" style="width: 80%;">280</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Finale</div>
+        <div class="bar-track"><div class="bar-fill verde" style="width: 91%;">320</div></div>
+      </div>
     </div>
-    <a href="rappresentanti.html" class="pa-btn">Vai ai Rappresentanti &rarr;</a>
+  </div>
+
+  <div class="pa-chart-section" style="margin-top: 1.5rem;">
+    <div class="pa-chart-title">Proposte per commissione</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">Governance</div>
+        <div class="bar-track"><div class="bar-fill" style="width: 75%;">6</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Didattica</div>
+        <div class="bar-track"><div class="bar-fill verde" style="width: 62%;">5</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Inclusione</div>
+        <div class="bar-track"><div class="bar-fill arancio" style="width: 50%;">4</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Servizi</div>
+        <div class="bar-track"><div class="bar-fill" style="width: 37%;">3</div></div>
+      </div>
+    </div>
   </div>
 
 </div>

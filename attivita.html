@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rappre 2026 - Home</title>
+  <title>Rappre 2026 - Attività</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -24,10 +24,9 @@
     .pa-nav a { text-decoration: none; color: #17324d; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s; }
     .pa-nav a:hover, .pa-nav a.active { background: #0066cc; color: #fff; }
 
-    .pa-hero { background: linear-gradient(135deg, #17324d 0%, #0066cc 100%); color: #fff; padding: 5rem 2rem; text-align: center; }
-    .pa-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.15; }
-    .pa-hero p { margin-top: 1rem; font-size: 1.15rem; opacity: 0.85; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-    .pa-hero .badge-anno { display: inline-block; margin-top: 1.5rem; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 0.4rem 1.2rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; }
+    .pa-hero-sub { background: linear-gradient(135deg, #17324d 0%, #0066cc 100%); color: #fff; padding: 4rem 2rem; text-align: center; }
+    .pa-hero-sub h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
+    .pa-hero-sub p { margin-top: 0.8rem; font-size: 1.1rem; opacity: 0.85; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
     .pa-content { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
     .pa-breadcrumb { font-size: 0.8rem; color: #5b6f82; margin-bottom: 2rem; }
@@ -38,16 +37,13 @@
     .pa-section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: #17324d; margin-bottom: 0.8rem; }
     .pa-section-desc { font-size: 1.05rem; color: #5b6f82; max-width: 700px; line-height: 1.65; }
 
-    .pa-numeri { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    .pa-num-box { background: #fff; border: 1px solid #d9dadb; border-radius: 4px; padding: 2rem 1.5rem; text-align: center; }
-    .pa-num-box .num { font-size: 2.8rem; font-weight: 700; color: #0066cc; line-height: 1; }
-    .pa-num-box .lbl { font-size: 0.85rem; color: #5b6f82; margin-top: 0.5rem; }
+    .pa-att-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
 
-    .pa-highlight { background: #fff; border: 1px solid #d9dadb; border-left: 4px solid #0066cc; border-radius: 4px; padding: 2rem 2.5rem; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .pa-highlight h3 { font-size: 1.2rem; font-weight: 700; }
-    .pa-highlight p { color: #5b6f82; font-size: 0.95rem; }
-    .pa-btn { display: inline-block; background: #0066cc; color: #fff; text-decoration: none; padding: 0.6rem 1.5rem; border-radius: 4px; font-size: 0.9rem; font-weight: 600; transition: background 0.2s; }
-    .pa-btn:hover { background: #0052a3; }
+    .pa-att-item { background: #fff; border: 1px solid #d9dadb; border-left: 4px solid #0066cc; border-radius: 4px; padding: 1.5rem 1.8rem; transition: box-shadow 0.2s; }
+    .pa-att-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .pa-att-item h4 { font-size: 1.05rem; font-weight: 700; color: #17324d; }
+    .pa-att-item p { font-size: 0.9rem; color: #5b6f82; margin-top: 0.5rem; line-height: 1.55; }
+    .pa-att-item .data { margin-top: 0.8rem; font-size: 0.78rem; color: #8e8e93; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
 
     .pa-footer { background: #17324d; color: #fff; padding: 2.5rem 2rem; }
     .pa-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -58,7 +54,7 @@
     .pa-footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); max-width: 1200px; margin: 1.5rem auto 0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.75rem; opacity: 0.5; }
 
     @media (max-width: 768px) {
-      .pa-numeri { grid-template-columns: repeat(2, 1fr); }
+      .pa-att-grid { grid-template-columns: 1fr; }
       .pa-header-inner { flex-wrap: wrap; }
       .pa-nav { margin-left: 0; }
       .pa-footer-inner { flex-direction: column; text-align: center; }
@@ -82,62 +78,73 @@
       </div>
     </a>
     <div class="pa-nav">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="rappresentanti.html">Rappresentanti</a>
-      <a href="attivita.html">Attività</a>
+      <a href="attivita.html" class="active">Attività</a>
       <a href="assemblea.html">Assemblea</a>
       <a href="numeri.html">Numeri</a>
     </div>
   </div>
 </div>
 
-<div class="pa-hero">
-  <h1>Rappresentanti d'Istituto</h1>
-  <p>La rappresentanza studentesca al servizio della comunità scolastica. Trasparenza, partecipazione e risultati.</p>
-  <span class="badge-anno">A.S. 2025 / 2026</span>
+<div class="pa-hero-sub">
+  <h1>Attività svolte</h1>
+  <p>Le principali iniziative e progetti realizzati durante l'anno scolastico.</p>
 </div>
 
 <div class="pa-content">
 
   <div class="pa-breadcrumb">
-    <a href="index.html">Home</a>
+    <a href="index.html">Home</a> &rsaquo; Attività
   </div>
 
   <div class="pa-section">
-    <span class="pa-section-label">Missione</span>
-    <div class="pa-section-title">Tutelare i diritti degli studenti</div>
+    <span class="pa-section-label">Progetti</span>
+    <div class="pa-section-title">Cosa abbiamo fatto</div>
     <p class="pa-section-desc">
-      Il Consiglio d'Istituto è l'organo elettivo e democratico che rappresenta
-      gli studenti presso la comunità scolastica. I rappresentanti ascoltano,
-      raccolgono proposte e le portano avanti nelle sedi istituzionali.
+      Le principali iniziative portate avanti dal team di rappresentanti
+      in risposta alle esigenze degli studenti.
     </p>
   </div>
 
-  <div class="pa-numeri">
-    <div class="pa-num-box">
-      <div class="num">4</div>
-      <div class="lbl">Rappresentanti</div>
-    </div>
-    <div class="pa-num-box">
-      <div class="num">5</div>
-      <div class="lbl">Assemblee tenute</div>
-    </div>
-    <div class="pa-num-box">
-      <div class="num">12</div>
-      <div class="lbl">Proposte approvate</div>
-    </div>
-    <div class="pa-num-box">
-      <div class="num">850+</div>
-      <div class="lbl">Studenti rappresentati</div>
-    </div>
-  </div>
+  <div class="pa-att-grid">
 
-  <div class="pa-highlight">
-    <div>
-      <h3>Scopri il nostro team</h4>
-      <p>Conosci i quattro rappresentanti eletti dagli studenti.</p>
+    <div class="pa-att-item">
+      <h4>Riforma del regolamento interno</h4>
+      <p>Revisione completa del regolamento scolastico con proposte studentesche su assenze, ritardi e codice di condotta. Costruito un comitato misto studenti-insegnanti.</p>
+      <div class="data">Febbraio 2026</div>
     </div>
-    <a href="rappresentanti.html" class="pa-btn">Vai ai Rappresentanti &rarr;</a>
+
+    <div class="pa-att-item">
+      <h4>Miglioramento spazi comuni</h4>
+      <p>Riqualificazione dell'aula studio e della sala mensa con nuovi arredi, prese USB per ricarica dispositivi e aree di relax dedicate.</p>
+      <div class="data">Gennaio 2026</div>
+    </div>
+
+    <div class="pa-att-item">
+      <h4>Settimana della legalità</h4>
+      <p>Organizzazione di laboratori, conferenze e attività su tema legalità, rispetto e cittadinanza attiva. Ospiti esterni e workshop interattivi.</p>
+      <div class="data">Novembre 2025</div>
+    </div>
+
+    <div class="pa-att-item">
+      <h4>Digitale e comunicazione</h4>
+      <p>Lancio dell'account Instagram ufficiale e del canale Telegram per aggiornamenti in tempo reale. Oltre 400 follower in due mesi.</p>
+      <div class="data">Ottobre 2025</div>
+    </div>
+
+    <div class="pa-att-item">
+      <h4>Bollino blu per la mensa</h4>
+      <p>Proposta e approvazione del sistema a bollini per la mensa scolastica, riducendo le file e migliorando l'organizzazione dei pasti.</p>
+      <div class="data">Dicembre 2025</div>
+    </div>
+
+    <div class="pa-att-item">
+      <h4>Concerto di fine anno</h4>
+      <p>Organizzazione del concerto di fine anno con le band studentesche. Evento aperto a famiglie e comunità locale, oltre 300 partecipanti.</p>
+      <div class="data">Giugno 2026</div>
+    </div>
+
   </div>
 
 </div>

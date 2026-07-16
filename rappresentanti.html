@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rappre 2026 - Rappresentanti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Titillium Web', sans-serif; background: #f5f6f7; color: #17324d; -webkit-font-smoothing: antialiased; }
+
+    .pa-header-top { background: #17324d; color: #fff; font-size: 0.8rem; padding: 0.4rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .pa-header-top a { color: #fff; text-decoration: none; opacity: 0.8; }
+    .pa-header-top a:hover { opacity: 1; }
+
+    .pa-header { background: #fff; border-bottom: 2px solid #0066cc; position: sticky; top: 0; z-index: 100; }
+    .pa-header-inner { max-width: 1200px; margin: 0 auto; padding: 0.8rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
+    .pa-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; color: #17324d; }
+    .pa-logo .logo-icon { width: 42px; height: 42px; background: #0066cc; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1.1rem; }
+    .pa-logo .logo-text { font-weight: 700; font-size: 1.1rem; line-height: 1.2; }
+    .pa-logo .logo-sub { font-size: 0.75rem; font-weight: 400; color: #5b6f82; }
+    .pa-nav { margin-left: auto; display: flex; gap: 0.3rem; }
+    .pa-nav a { text-decoration: none; color: #17324d; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s; }
+    .pa-nav a:hover, .pa-nav a.active { background: #0066cc; color: #fff; }
+
+    .pa-hero-sub { background: linear-gradient(135deg, #17324d 0%, #0066cc 100%); color: #fff; padding: 4rem 2rem; text-align: center; }
+    .pa-hero-sub h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
+    .pa-hero-sub p { margin-top: 0.8rem; font-size: 1.1rem; opacity: 0.85; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+    .pa-content { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+    .pa-breadcrumb { font-size: 0.8rem; color: #5b6f82; margin-bottom: 2rem; }
+    .pa-breadcrumb a { color: #0066cc; text-decoration: none; }
+
+    .pa-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+
+    .pa-card { background: #fff; border: 1px solid #d9dadb; border-radius: 4px; overflow: hidden; transition: box-shadow 0.2s; }
+    .pa-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+    .pa-card-top { background: #0066cc; padding: 1.5rem 1.8rem; display: flex; align-items: center; gap: 1rem; }
+    .pa-card-avatar { width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; font-weight: 700; flex-shrink: 0; }
+    .pa-card-top h3 { color: #fff; font-size: 1.2rem; font-weight: 700; }
+    .pa-card-top .ruolo { color: rgba(255,255,255,0.75); font-size: 0.82rem; }
+
+    .pa-card-body { padding: 1.5rem 1.8rem; }
+    .pa-card-body .bio { font-size: 0.92rem; color: #455a64; line-height: 1.6; margin-bottom: 1rem; }
+    .pa-card-body .detail-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.88rem; color: #5b6f82; }
+    .pa-card-body .detail-row .label-det { font-weight: 600; color: #17324d; min-width: 90px; }
+    .pa-card-body .detail-row a { color: #0066cc; text-decoration: none; }
+    .pa-card-body .detail-row a:hover { text-decoration: underline; }
+
+    .pa-card-footer { border-top: 1px solid #d9dadb; padding: 0.8rem 1.8rem; display: flex; justify-content: space-between; align-items: center; }
+    .pa-tag { display: inline-block; background: #e8f4fd; color: #0066cc; font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 3px; }
+    .pa-status { font-size: 0.78rem; font-weight: 600; color: #00875a; display: flex; align-items: center; gap: 0.35rem; }
+    .pa-status::before { content: ''; width: 7px; height: 7px; background: #00875a; border-radius: 50%; }
+
+    .pa-footer { background: #17324d; color: #fff; padding: 2.5rem 2rem; }
+    .pa-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .pa-footer p { font-size: 0.82rem; opacity: 0.7; }
+    .pa-footer-links { display: flex; gap: 1.5rem; }
+    .pa-footer-links a { color: #fff; font-size: 0.82rem; text-decoration: none; opacity: 0.7; }
+    .pa-footer-links a:hover { opacity: 1; }
+    .pa-footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); max-width: 1200px; margin: 1.5rem auto 0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.75rem; opacity: 0.5; }
+
+    @media (max-width: 768px) {
+      .pa-cards { grid-template-columns: 1fr; }
+      .pa-header-inner { flex-wrap: wrap; }
+      .pa-nav { margin-left: 0; }
+      .pa-footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="pa-header-top">
+  <span>Istituto Superiore &middot; Anno Scolastico 2025/2026</span>
+  <a href="#">Accedi all'area riservata</a>
+</div>
+
+<div class="pa-header">
+  <div class="pa-header-inner">
+    <a class="pa-logo" href="index.html">
+      <div class="logo-icon">RI</div>
+      <div>
+        <div class="logo-text">Rappre d'Istituto</div>
+        <div class="logo-sub">Rappresentanza Studentesca</div>
+      </div>
+    </a>
+    <div class="pa-nav">
+      <a href="index.html">Home</a>
+      <a href="rappresentanti.html" class="active">Rappresentanti</a>
+      <a href="attivita.html">Attività</a>
+      <a href="assemblea.html">Assemblea</a>
+      <a href="numeri.html">Numeri</a>
+    </div>
+  </div>
+</div>
+
+<div class="pa-hero-sub">
+  <h1>Rappresentanti d'Istituto</h1>
+  <p>Quattro studenti eletti a suffragio universale per rappresentare gli interessi di tutta la comunità scolastica.</p>
+</div>
+
+<div class="pa-content">
+
+  <div class="pa-breadcrumb">
+    <a href="index.html">Home</a> &rsaquo; Rappresentanti
+  </div>
+
+  <div class="pa-cards">
+
+    <div class="pa-card">
+      <div class="pa-card-top">
+        <div class="pa-card-avatar">EM</div>
+        <div>
+          <h3>Elena Marchetti</h3>
+          <div class="ruolo">Presidente del Consiglio d'Istituto</div>
+        </div>
+      </div>
+      <div class="pa-card-body">
+        <div class="bio">
+          Classe Quinta Liceo delle Scienze Umane. Coordina i lavori del consiglio
+          d'istituto e rappresenta lo studentato nei confronti della dirigenza.
+        </div>
+        <div class="detail-row"><span class="label-det">Indirizzo</span><span>Liceo Scienze Umane - V A</span></div>
+        <div class="detail-row"><span class="label-det">Email</span><a href="mailto:elena.marchetti@istituto.it">elena.marchetti@istituto.it</a></div>
+        <div class="detail-row"><span class="label-det">Referente</span><span>Governance e Organizzazione</span></div>
+      </div>
+      <div class="pa-card-footer">
+        <span class="pa-tag">Presidente</span>
+        <span class="pa-status">In carica</span>
+      </div>
+    </div>
+
+    <div class="pa-card">
+      <div class="pa-card-top">
+        <div class="pa-card-avatar">AR</div>
+        <div>
+          <h3>Alessandro Ricci</h3>
+          <div class="ruolo">Vicepresidente del Consiglio</div>
+        </div>
+      </div>
+      <div class="pa-card-body">
+        <div class="bio">
+          Classe Quarta Scientifico. Supporta la presidenza e coordina le attività
+          delle commissioni. Specializzato in questioni didattiche.
+        </div>
+        <div class="detail-row"><span class="label-det">Indirizzo</span><span>Liceo Scientifico - IV B</span></div>
+        <div class="detail-row"><span class="label-det">Email</span><a href="mailto:alessandro.ricci@istituto.it">alessandro.ricci@istituto.it</a></div>
+        <div class="detail-row"><span class="label-det">Referente</span><span>Didattica e Formazione</span></div>
+      </div>
+      <div class="pa-card-footer">
+        <span class="pa-tag">Vicepresidente</span>
+        <span class="pa-status">In carica</span>
+      </div>
+    </div>
+
+    <div class="pa-card">
+      <div class="pa-card-top">
+        <div class="pa-card-avatar">SF</div>
+        <div>
+          <h3>Sofia Ferraro</h3>
+          <div class="ruolo">Consigliera d'Istituto</div>
+        </div>
+      </div>
+      <div class="pa-card-body">
+        <div class="bio">
+          Classe Terza Linguistico. Si occupa di inclusione, benessere e supporto
+          psicologico. Ha promosso iniziative per la diversificazione dell'offerta formativa.
+        </div>
+        <div class="detail-row"><span class="label-det">Indirizzo</span><span>Liceo Linguistico - III A</span></div>
+        <div class="detail-row"><span class="label-det">Email</span><a href="mailto:sofia.ferraro@istituto.it">sofia.ferraro@istituto.it</a></div>
+        <div class="detail-row"><span class="label-det">Referente</span><span>Inclusione e Benessere</span></div>
+      </div>
+      <div class="pa-card-footer">
+        <span class="pa-tag">Consigliera</span>
+        <span class="pa-status">In carica</span>
+      </div>
+    </div>
+
+    <div class="pa-card">
+      <div class="pa-card-top">
+        <div class="pa-card-avatar">MT</div>
+        <div>
+          <h3>Marco Testa</h3>
+          <div class="ruolo">Consigliere d'Istituto</div>
+        </div>
+      </div>
+      <div class="pa-card-body">
+        <div class="bio">
+          Classe Quinta Tecnico. Gestisce spazi, servizi e comunicazione interna.
+          Ha coordinato il progetto di riqualificazione dell'aula studio.
+        </div>
+        <div class="detail-row"><span class="label-det">Indirizzo</span><span>ITIS - Informatica - V A</span></div>
+        <div class="detail-row"><span class="label-det">Email</span><a href="mailto:marco.testa@istituto.it">marco.testa@istituto.it</a></div>
+        <div class="detail-row"><span class="label-det">Referente</span><span>Servizi e Comunicazione</span></div>
+      </div>
+      <div class="pa-card-footer">
+        <span class="pa-tag">Consigliere</span>
+        <span class="pa-status">In carica</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="pa-footer">
+  <div class="pa-footer-inner">
+    <p>Rappre d'Istituto &middot; Rappresentanza Studentesca</p>
+    <div class="pa-footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Note legali</a>
+      <a href="#">Accessibilità</a>
+      <a href="mailto:info@rappre.it">Contatti</a>
+    </div>
+  </div>
+  <div class="pa-footer-bottom">
+    <span>&copy; 2026 Istituto Superiore - Tutti i diritti riservati</span>
+    <span>P.IVA 00000000000</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rappre 2026 - Home</title>
+  <title>Rappre 2026 - Assemblea d'Istituto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -24,10 +24,9 @@
     .pa-nav a { text-decoration: none; color: #17324d; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s; }
     .pa-nav a:hover, .pa-nav a.active { background: #0066cc; color: #fff; }
 
-    .pa-hero { background: linear-gradient(135deg, #17324d 0%, #0066cc 100%); color: #fff; padding: 5rem 2rem; text-align: center; }
-    .pa-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.15; }
-    .pa-hero p { margin-top: 1rem; font-size: 1.15rem; opacity: 0.85; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-    .pa-hero .badge-anno { display: inline-block; margin-top: 1.5rem; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 0.4rem 1.2rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; }
+    .pa-hero-sub { background: linear-gradient(135deg, #17324d 0%, #0066cc 100%); color: #fff; padding: 4rem 2rem; text-align: center; }
+    .pa-hero-sub h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
+    .pa-hero-sub p { margin-top: 0.8rem; font-size: 1.1rem; opacity: 0.85; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
     .pa-content { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
     .pa-breadcrumb { font-size: 0.8rem; color: #5b6f82; margin-bottom: 2rem; }
@@ -38,16 +37,18 @@
     .pa-section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: #17324d; margin-bottom: 0.8rem; }
     .pa-section-desc { font-size: 1.05rem; color: #5b6f82; max-width: 700px; line-height: 1.65; }
 
-    .pa-numeri { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    .pa-num-box { background: #fff; border: 1px solid #d9dadb; border-radius: 4px; padding: 2rem 1.5rem; text-align: center; }
-    .pa-num-box .num { font-size: 2.8rem; font-weight: 700; color: #0066cc; line-height: 1; }
-    .pa-num-box .lbl { font-size: 0.85rem; color: #5b6f82; margin-top: 0.5rem; }
+    .pa-timeline { margin-top: 2.5rem; position: relative; padding-left: 2.5rem; }
+    .pa-timeline::before { content: ''; position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: #d9dadb; }
 
-    .pa-highlight { background: #fff; border: 1px solid #d9dadb; border-left: 4px solid #0066cc; border-radius: 4px; padding: 2rem 2.5rem; margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .pa-highlight h3 { font-size: 1.2rem; font-weight: 700; }
-    .pa-highlight p { color: #5b6f82; font-size: 0.95rem; }
-    .pa-btn { display: inline-block; background: #0066cc; color: #fff; text-decoration: none; padding: 0.6rem 1.5rem; border-radius: 4px; font-size: 0.9rem; font-weight: 600; transition: background 0.2s; }
-    .pa-btn:hover { background: #0052a3; }
+    .pa-tl-item { position: relative; padding-bottom: 2.8rem; }
+    .pa-tl-item::before { content: ''; position: absolute; left: -2.5rem; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #0066cc; border: 2px solid #fff; box-shadow: 0 0 0 2px #0066cc; }
+    .pa-tl-item .tl-data { font-size: 0.78rem; color: #8e8e93; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+    .pa-tl-item h4 { font-size: 1.05rem; font-weight: 700; color: #17324d; margin-top: 0.3rem; }
+    .pa-tl-item p { font-size: 0.9rem; color: #5b6f82; margin-top: 0.3rem; line-height: 1.55; }
+
+    .pa-tl-card { background: #fff; border: 1px solid #d9dadb; border-radius: 4px; padding: 1.2rem 1.5rem; margin-top: 0.6rem; }
+    .pa-tl-card .partecipanti { font-size: 0.82rem; color: #0066cc; font-weight: 600; margin-top: 0.5rem; }
+    .pa-tl-card .risultati { font-size: 0.85rem; color: #5b6f82; margin-top: 0.3rem; line-height: 1.5; }
 
     .pa-footer { background: #17324d; color: #fff; padding: 2.5rem 2rem; }
     .pa-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -58,7 +59,6 @@
     .pa-footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); max-width: 1200px; margin: 1.5rem auto 0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.75rem; opacity: 0.5; }
 
     @media (max-width: 768px) {
-      .pa-numeri { grid-template-columns: repeat(2, 1fr); }
       .pa-header-inner { flex-wrap: wrap; }
       .pa-nav { margin-left: 0; }
       .pa-footer-inner { flex-direction: column; text-align: center; }
@@ -82,62 +82,87 @@
       </div>
     </a>
     <div class="pa-nav">
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="rappresentanti.html">Rappresentanti</a>
       <a href="attivita.html">Attività</a>
-      <a href="assemblea.html">Assemblea</a>
+      <a href="assemblea.html" class="active">Assemblea</a>
       <a href="numeri.html">Numeri</a>
     </div>
   </div>
 </div>
 
-<div class="pa-hero">
-  <h1>Rappresentanti d'Istituto</h1>
-  <p>La rappresentanza studentesca al servizio della comunità scolastica. Trasparenza, partecipazione e risultati.</p>
-  <span class="badge-anno">A.S. 2025 / 2026</span>
+<div class="pa-hero-sub">
+  <h1>Assemblea d'Istituto</h1>
+  <p>Il momento democratico più importante. Gli studenti esprimono la voce, i rappresentanti rendono conto.</p>
 </div>
 
 <div class="pa-content">
 
   <div class="pa-breadcrumb">
-    <a href="index.html">Home</a>
+    <a href="index.html">Home</a> &rsaquo; Assemblea d'Istituto
   </div>
 
   <div class="pa-section">
-    <span class="pa-section-label">Missione</span>
-    <div class="pa-section-title">Tutelare i diritti degli studenti</div>
+    <span class="pa-section-label">Cronologia</span>
+    <div class="pa-section-title">Le assemblee dell'anno</div>
     <p class="pa-section-desc">
-      Il Consiglio d'Istituto è l'organo elettivo e democratico che rappresenta
-      gli studenti presso la comunità scolastica. I rappresentanti ascoltano,
-      raccolgono proposte e le portano avanti nelle sedi istituzionali.
+      Ogni trimestre si tiene un'assemblea d'istituto. Il presidente del consiglio
+      illustra i lavori, si raccolgono le proposte e si votano le priorità.
     </p>
   </div>
 
-  <div class="pa-numeri">
-    <div class="pa-num-box">
-      <div class="num">4</div>
-      <div class="lbl">Rappresentanti</div>
-    </div>
-    <div class="pa-num-box">
-      <div class="num">5</div>
-      <div class="lbl">Assemblee tenute</div>
-    </div>
-    <div class="pa-num-box">
-      <div class="num">12</div>
-      <div class="lbl">Proposte approvate</div>
-    </div>
-    <div class="pa-num-box">
-      <div class="num">850+</div>
-      <div class="lbl">Studenti rappresentati</div>
-    </div>
-  </div>
+  <div class="pa-timeline">
 
-  <div class="pa-highlight">
-    <div>
-      <h3>Scopri il nostro team</h4>
-      <p>Conosci i quattro rappresentanti eletti dagli studenti.</p>
+    <div class="pa-tl-item">
+      <div class="tl-data">12 Giugno 2026</div>
+      <h4>Assemblea finale di anno</h4>
+      <p>Presentazione del bilancio annuale e della relazione finale del consiglio d'istituto.</p>
+      <div class="pa-tl-card">
+        <div class="partecipanti">Partecipanti: 320 studenti</div>
+        <div class="risultati">Risultati: approvazione del bilancio, elezione nuovi rappresentanti, votazione priorità 2026/27.</div>
+      </div>
     </div>
-    <a href="rappresentanti.html" class="pa-btn">Vai ai Rappresentanti &rarr;</a>
+
+    <div class="pa-tl-item">
+      <div class="tl-data">20 Marzo 2026</div>
+      <h4>Assemblea trimestrale - Q3</h4>
+      <p>Aggiornamento sullo stato dei progetti e raccolta feedback dal corpo studentesco.</p>
+      <div class="pa-tl-card">
+        <div class="partecipanti">Partecipanti: 280 studenti</div>
+        <div class="risultati">Risultati: approvazione modifica regolamento su ritardi, nuove proposte su spazi studio.</div>
+      </div>
+    </div>
+
+    <div class="pa-tl-item">
+      <div class="tl-data">15 Gennaio 2026</div>
+      <h4>Assemblea trimestrale - Q2</h4>
+      <p>Presentazione dei dati sulla qualità della didattica e votazione del progetto spazi comuni.</p>
+      <div class="pa-tl-card">
+        <div class="partecipanti">Partecipanti: 260 studenti</div>
+        <div class="risultati">Risultati: approvazione unanime del progetto riqualificazione aula studio e mensa.</div>
+      </div>
+    </div>
+
+    <div class="pa-tl-item">
+      <div class="tl-data">18 Novembre 2025</div>
+      <h4>Assemblea di inizio anno</h4>
+      <p>Presentazione del team, del programma di mandato e prima raccolta di proposte.</p>
+      <div class="pa-tl-card">
+        <div class="partecipanti">Partecipanti: 290 studenti</div>
+        <div class="risultati">Risultati: 15 proposte raccolte, 5 priorità definite per il primo trimestre.</div>
+      </div>
+    </div>
+
+    <div class="pa-tl-item">
+      <div class="tl-data">8 Ottobre 2025</div>
+      <h4>Assemblea costitutiva</h4>
+      <p>Elezione del presidente e del vicepresidente del consiglio d'istituto.</p>
+      <div class="pa-tl-card">
+        <div class="partecipanti">Partecipanti: 350 studenti (record)</div>
+        <div class="risultati">Risultati: Elena Marchetti eletta presidente, Alessandro Ricci vicepresidente. Definite 4 commissioni.</div>
+      </div>
+    </div>
+
   </div>
 
 </div>
