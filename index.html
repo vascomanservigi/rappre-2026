@@ -3,425 +3,555 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rappre 2026 - Lista Rappresentanti</title>
+  <title>Rappre 2026 - Rappresentanti d'Istituto</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: #f0f2f5;
-      color: #1a1a2e;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      background: #fff;
+      color: #1d1d1f;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 0.9rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #1d1d1f;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: inherit;
+      opacity: 0.7;
+      transition: opacity 0.25s;
+    }
+
+    nav a:hover { opacity: 1; }
+
+    .hero {
       min-height: 100vh;
-    }
-
-    header {
-      background: linear-gradient(135deg, #0f3460, #16213e);
-      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 3rem 1rem;
-      position: relative;
-      overflow: hidden;
+      padding: 8rem 2rem 4rem;
+      background: #fbfbfd;
     }
 
-    header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
-      animation: pulse 8s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    header h1 {
-      font-size: 2.5rem;
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
       font-weight: 700;
-      position: relative;
-      letter-spacing: 1px;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      max-width: 800px;
     }
 
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      opacity: 0.85;
-      position: relative;
+    .hero .subtitle {
+      margin-top: 1.2rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: #6e6e73;
+      max-width: 600px;
+      font-weight: 400;
+      line-height: 1.5;
     }
 
-    .badge {
+    .hero .year-badge {
+      margin-top: 2rem;
       display: inline-block;
-      margin-top: 1rem;
-      background: #e94560;
-      padding: 0.4rem 1.2rem;
+      padding: 0.4rem 1rem;
       border-radius: 50px;
+      background: #1d1d1f;
+      color: #fff;
       font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    section {
+      padding: 6rem 2rem;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
       font-weight: 600;
-      position: relative;
-      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #6e6e73;
+      margin-bottom: 0.6rem;
     }
 
-    main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-    }
-
-    .stat-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 1.2rem 2rem;
-      text-align: center;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      min-width: 160px;
-    }
-
-    .stat-card .number {
-      font-size: 2rem;
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 700;
-      color: #0f3460;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
     }
 
-    .stat-card .label {
-      font-size: 0.85rem;
-      color: #666;
-      margin-top: 0.2rem;
+    .section-desc {
+      font-size: 1.15rem;
+      color: #6e6e73;
+      max-width: 640px;
+      line-height: 1.6;
     }
 
-    .grid {
+    .rappre-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
+      margin-top: 3.5rem;
     }
 
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
+    .rappre-card {
+      background: #fbfbfd;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+      border: 1px solid rgba(0,0,0,0.04);
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    .rappre-card:hover {
+      background: #f5f5f7;
     }
 
-    .card-header {
-      background: linear-gradient(135deg, #0f3460, #533483);
-      padding: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .avatar {
-      width: 64px;
-      height: 64px;
+    .rappre-card .avatar-lg {
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.2);
+      background: linear-gradient(135deg, #1d1d1f, #424245);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 700;
       color: #fff;
-      flex-shrink: 0;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
     }
 
-    .card-header .info h3 {
-      color: #fff;
+    .rappre-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .rappre-card .role {
+      font-size: 0.95rem;
+      color: #6e6e73;
+      margin-top: 0.25rem;
+    }
+
+    .rappre-card .bio {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #424245;
+      line-height: 1.6;
+    }
+
+    .rappre-card .contact {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      color: #6e6e73;
+    }
+
+    .rappre-card .contact a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .rappre-card .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(0,0,0,0.06);
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .activites-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .activity-item {
+      padding: 2rem;
+      border-radius: 16px;
+      background: #fbfbfd;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .activity-item:hover {
+      background: #f5f5f7;
+    }
+
+    .activity-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .activity-item h4 {
       font-size: 1.15rem;
       font-weight: 600;
     }
 
-    .card-header .info .ruolo {
-      color: rgba(255,255,255,0.75);
+    .activity-item p {
+      font-size: 0.92rem;
+      color: #6e6e73;
+      margin-top: 0.5rem;
+      line-height: 1.55;
+    }
+
+    .activity-item .date {
+      margin-top: 0.8rem;
       font-size: 0.8rem;
-      margin-top: 0.15rem;
+      color: #8e8e93;
+      font-weight: 500;
     }
 
-    .card-body {
-      padding: 1.2rem 1.5rem;
+    .timeline {
+      margin-top: 3rem;
+      position: relative;
     }
 
-    .card-body .detail {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.6rem;
-      font-size: 0.9rem;
-      color: #444;
-    }
-
-    .card-body .detail .icon {
-      width: 20px;
-      text-align: center;
-      flex-shrink: 0;
-      opacity: 0.5;
-    }
-
-    .card-body .detail a {
-      color: #0f3460;
-      text-decoration: none;
-    }
-
-    .card-body .detail a:hover {
-      text-decoration: underline;
-    }
-
-    .card-footer {
-      border-top: 1px solid #eee;
-      padding: 0.8rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .card-footer .zone {
-      background: #eef2ff;
-      color: #0f3460;
-      padding: 0.25rem 0.75rem;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    .card-footer .status {
-      font-size: 0.75rem;
-      color: #2ecc71;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .card-footer .status::before {
+    .timeline::before {
       content: '';
-      width: 7px;
-      height: 7px;
-      background: #2ecc71;
-      border-radius: 50%;
-      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e5e5e7;
     }
 
-    footer {
+    .timeline-item {
+      padding-left: 2rem;
+      padding-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #1d1d1f;
+    }
+
+    .timeline-item .tl-date {
+      font-size: 0.8rem;
+      color: #8e8e93;
+      font-weight: 500;
+    }
+
+    .timeline-item h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+
+    .timeline-item p {
+      font-size: 0.92rem;
+      color: #6e6e73;
+      margin-top: 0.3rem;
+      line-height: 1.5;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .stat-box {
       text-align: center;
       padding: 2rem 1rem;
-      color: #888;
+    }
+
+    .stat-box .num {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #1d1d1f;
+    }
+
+    .stat-box .lbl {
+      font-size: 0.85rem;
+      color: #6e6e73;
+      margin-top: 0.3rem;
+    }
+
+    .footer-strip {
+      background: #1d1d1f;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 2rem;
       font-size: 0.85rem;
     }
 
-    footer a {
-      color: #0f3460;
+    .footer-strip a {
+      color: #2997ff;
       text-decoration: none;
     }
 
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.7rem; }
-      .grid { grid-template-columns: 1fr; }
-      .stats { gap: 1rem; }
-      .stat-card { min-width: 120px; padding: 1rem; }
+    @media (max-width: 768px) {
+      .rappre-grid, .activites-grid, .stats-row {
+        grid-template-columns: 1fr;
+      }
+      nav { gap: 1.2rem; font-size: 0.75rem; flex-wrap: wrap; }
+      section { padding: 4rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Rappre 2026</h1>
-  <p>La tua squadra di rappresentanti di zona</p>
-  <span class="badge">Edizione 2026</span>
-</header>
+<nav>
+  <a href="#chi-siamo">Chi siamo</a>
+  <a href="#rappresentanti">Rappresentanti</a>
+  <a href="#attivita">Attività</a>
+  <a href="#assemblea">Assemblea</a>
+  <a href="#numeri">Numeri</a>
+</nav>
 
-<main>
-  <div class="stats">
-    <div class="stat-card">
-      <div class="number">8</div>
-      <div class="label">Rappresentanti</div>
-    </div>
-    <div class="stat-card">
-      <div class="number">5</div>
-      <div class="label">Zone</div>
-    </div>
-    <div class="stat-card">
-      <div class="number">100%</div>
-      <div class="label">Attivi</div>
-    </div>
-  </div>
+<div class="hero">
+  <span class="year-badge">Anno Scolastico 2025 / 2026</span>
+  <h1>Rappresentanti d'Istituto</h1>
+  <p class="subtitle">La voce degli studenti. Un gruppo che lavora ogni giorno per migliorare la vita scolastica di tutti.</p>
+</div>
 
-  <div class="grid">
+<section id="chi-siamo">
+  <div class="section-label">Missione</div>
+  <div class="section-title">Costruire insieme<br>il futuro della scuola.</div>
+  <p class="section-desc">
+    I rappresentanti d'istituto sono eletti dagli studenti per rappresentarne gli interessi
+    presso il consiglio d'istituto. Ascoltano, propongono e decidono insieme alla comunità scolastica.
+  </p>
+</section>
 
-    <div class="card">
-      <div class="card-header">
-        <div class="avatar">MR</div>
-        <div class="info">
-          <h3>Mario Rossi</h3>
-          <div class="ruolo">Responsabile Zona Nord</div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="detail"><span class="icon">&#9993;</span> mario.rossi@email.com</div>
-        <div class="detail"><span class="icon">&#9742;</span> +39 333 123 4567</div>
-        <div class="detail"><span class="icon">&#9873;</span> Quartiere Nord, Torino</div>
-      </div>
-      <div class="card-footer">
-        <span class="zone">Zona Nord</span>
-        <span class="status">Attivo</span>
-      </div>
-    </div>
+<div class="divider"></div>
 
-    <div class="card">
-      <div class="card-header">
-        <div class="avatar">LB</div>
-        <div class="info">
-          <h3>Laura Bianchi</h3>
-          <div class="ruolo">Responsabile Zona Sud</div>
-        </div>
+<section id="rappresentanti">
+  <div class="section-label">Il nostro team</div>
+  <div class="section-title">Quattro voci,<br>un obiettivo solo.</div>
+  <p class="section-desc">
+    Scelti dagli studenti, al servizio degli studenti. Ognuno porta la propria esperienza
+    e visione per rappresentare tutta la comunità scolastica.
+  </p>
+
+  <div class="rappre-grid">
+
+    <div class="rappre-card">
+      <div class="avatar-lg">EM</div>
+      <h3>Elena Marchetti</h3>
+      <div class="role">Presidente di Consiglio</div>
+      <div class="bio">
+        Classe Quinta Liceo. Si occupa della coordinatione del consiglio d'istituto
+        e delle relazioni con la dirigenza scolastica. Porta avanti le proposte studentesche
+        con determinazione e visione strategica.
       </div>
-      <div class="card-body">
-        <div class="detail"><span class="icon">&#9993;</span> laura.bianchi@email.com</div>
-        <div class="detail"><span class="icon">&#9742;</span> +39 333 234 5678</div>
-        <div class="detail"><span class="icon">&#9873;</span> Quartiere Sud, Torino</div>
-      </div>
-      <div class="card-footer">
-        <span class="zone">Zona Sud</span>
-        <span class="status">Attivo</span>
+      <div class="contact">
+        <a href="mailto:elena.marchetti@istituto.it">elena.marchetti@istituto.it</a>
+        <span>Referente per: Governance e Organizzazione</span>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-header">
-        <div class="avatar">GV</div>
-        <div class="info">
-          <h3>Giovanni Verdi</h3>
-          <div class="ruolo">Responsabile Zona Est</div>
-        </div>
+    <div class="rappre-card">
+      <div class="avatar-lg">AR</div>
+      <h3>Alessandro Ricci</h3>
+      <div class="role">Vicepresidente</div>
+      <div class="bio">
+        Classe Quarta Scientifico. Follow-up delle attività commissioni e supporto
+        alla presidenza. Specializzato in questioni didattiche e qualità dell'insegnamento.
       </div>
-      <div class="card-body">
-        <div class="detail"><span class="icon">&#9993;</span> giovanni.verdi@email.com</div>
-        <div class="detail"><span class="icon">&#9742;</span> +39 333 345 6789</div>
-        <div class="detail"><span class="icon">&#9873;</span> Quartiere Est, Torino</div>
-      </div>
-      <div class="card-footer">
-        <span class="zone">Zona Est</span>
-        <span class="status">Attivo</span>
+      <div class="contact">
+        <a href="mailto:alessandro.ricci@istituto.it">alessandro.ricci@istituto.it</a>
+        <span>Referente per: Didattica e Formazione</span>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-header">
-        <div class="avatar">FN</div>
-        <div class="info">
-          <h3>Francesca Neri</h3>
-          <div class="ruolo">Responsabile Zona Ovest</div>
-        </div>
+    <div class="rappre-card">
+      <div class="avatar-lg">SF</div>
+      <h3>Sofia Ferraro</h3>
+      <div class="role">Consigliera d'Istituto</div>
+      <div class="bio">
+        Classe Terza Linguistico. Si dedica al benessere degli studenti e all'inclusione.
+        Ha promosso iniziative per il supporto psicologico e la diversificazione dell'offerta formativa.
       </div>
-      <div class="card-body">
-        <div class="detail"><span class="icon">&#9993;</span> francesca.neri@email.com</div>
-        <div class="detail"><span class="icon">&#9742;</span> +39 333 456 7890</div>
-        <div class="detail"><span class="icon">&#9873;</span> Quartiere Ovest, Torino</div>
-      </div>
-      <div class="card-footer">
-        <span class="zone">Zona Ovest</span>
-        <span class="status">Attivo</span>
+      <div class="contact">
+        <a href="mailto:sofia.ferraro@istituto.it">sofia.ferraro@istituto.it</a>
+        <span>Referente per: Inclusione e Benessere</span>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-header">
-        <div class="avatar">LM</div>
-        <div class="info">
-          <h3>Luca Moretti</h3>
-          <div class="ruolo">Responsabile Zona Centro</div>
-        </div>
+    <div class="rappre-card">
+      <div class="avatar-lg">MT</div>
+      <h3>Marco Testa</h3>
+      <div class="role">Consigliere d'Istituto</div>
+      <div class="bio">
+        Classe Quinta Tecnico. Si occupa di spazi, servizi e comunicazione interna.
+        Ha gestito il progetto di rinnovo dell'aula studio e il potenziamento dei servizi digitali.
       </div>
-      <div class="card-body">
-        <div class="detail"><span class="icon">&#9993;</span> luca.moretti@email.com</div>
-        <div class="detail"><span class="icon">&#9742;</span> +39 333 567 8901</div>
-        <div class="detail"><span class="icon">&#9873;</span> Centro Storico, Torino</div>
-      </div>
-      <div class="card-footer">
-        <span class="zone">Zona Centro</span>
-        <span class="status">Attivo</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="avatar">AC</div>
-        <div class="info">
-          <h3>Anna Colombo</h3>
-          <div class="ruolo">Rappresentante Zona Nord</div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="detail"><span class="icon">&#9993;</span> anna.colombo@email.com</div>
-        <div class="detail"><span class="icon">&#9742;</span> +39 333 678 9012</div>
-        <div class="detail"><span class="icon">&#9873;</span> Barriera di Milano, Torino</div>
-      </div>
-      <div class="card-footer">
-        <span class="zone">Zona Nord</span>
-        <span class="status">Attivo</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="avatar">PF</div>
-        <div class="info">
-          <h3>Paolo Ferrari</h3>
-          <div class="ruolo">Rappresentante Zona Est</div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="detail"><span class="icon">&#9993;</span> paolo.ferrari@email.com</div>
-        <div class="detail"><span class="icon">&#9742;</span> +39 333 789 0123</div>
-        <div class="detail"><span class="icon">&#9873;</span> Crocetta, Torino</div>
-      </div>
-      <div class="card-footer">
-        <span class="zone">Zona Est</span>
-        <span class="status">Attivo</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div class="avatar">SG</div>
-        <div class="info">
-          <h3>Sara Greco</h3>
-          <div class="ruolo">Rappresentante Zona Sud</div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="detail"><span class="icon">&#9993;</span> sara.greco@email.com</div>
-        <div class="detail"><span class="icon">&#9742;</span> +39 333 890 1234</div>
-        <div class="detail"><span class="icon">&#9873;</span> San Salvario, Torino</div>
-      </div>
-      <div class="card-footer">
-        <span class="zone">Zona Sud</span>
-        <span class="status">Attivo</span>
+      <div class="contact">
+        <a href="mailto:marco.testa@istituto.it">marco.testa@istituto.it</a>
+        <span>Referente per: Servizi e Comunicazione</span>
       </div>
     </div>
 
   </div>
-</main>
+</section>
 
-<footer>
-  <p>&copy; 2026 Rappre - Tutti i diritti riservati | <a href="#">Contattaci</a></p>
-</footer>
+<div class="divider"></div>
+
+<section id="attivita">
+  <div class="section-label">Attività svolte</div>
+  <div class="section-title">Quello che abbiamo<br>fatto finora.</div>
+  <p class="section-desc">
+    Ogni trimestre organizziamo assemblee, incontri con il preside e progetti
+    per migliorare la scuola. Ecco i risultati principali.
+  </p>
+
+  <div class="activites-grid">
+
+    <div class="activity-item">
+      <div class="activity-icon" style="background:#e8f0fe; color:#1a73e8;">&#128218;</div>
+      <h4>Riforma del regolamento interno</h4>
+      <p>Revisione completa del regolamento scolastico con proposte studentesche su assenze, ritardi e codice di condotta.</p>
+      <div class="date">Febbraio 2026</div>
+    </div>
+
+    <div class="activity-item">
+      <div class="activity-icon" style="background:#fce8e6; color:#d93025;">&#127968;</div>
+      <h4>Miglioramento spazi comuni</h4>
+      <p>Riqualificazione dell'aula studio e della sala mensa con nuovi arredi, prese USB e aree di relax.</p>
+      <div class="date">Gennaio 2026</div>
+    </div>
+
+    <div class="activity-item">
+      <div class="activity-icon" style="background:#e6f4ea; color:#1e8e3e;">&#128101;</div>
+      <h4>Settimana della legalità</h4>
+      <p>Organizzazione di laboratori, conferenze e attività su tema legalità, rispetto e cittadinanza attiva.</p>
+      <div class="date">Novembre 2025</div>
+    </div>
+
+    <div class="activity-item">
+      <div class="activity-icon" style="background:#fef7e0; color:#e37400;">&#128241;</div>
+      <h4>Digitale e comunicazione</h4>
+      <p>Lancio dell'account Instagram del rappre e del canale Telegram per aggiornamenti in tempo reale.</p>
+      <div class="date">Ottobre 2025</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="assemblea">
+  <div class="section-label">Assemblea d'Istituto</div>
+  <div class="section-title">Le assemblee<br>di quest'anno.</div>
+  <p class="section-desc">
+    L'assemblea d'istituto è il momento democratico più importante.
+    Qui gli studenti esprimono la loro voce e i rappresentanti presentano i risultati.
+  </p>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="tl-date">12 Giugno 2026</div>
+      <h4>Assemblea finale di anno</h4>
+      <p>Presentazione del bilancio annuale, elezione dei nuovi rappresentanti e votazione delle priorità per il prossimo anno.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-date">20 Marzo 2026</div>
+      <h4>Assemblea trimestrale - Q3</h4>
+      <p>Discussione sullo stato del regolamento, aggiornamento progetti in corso e raccolta feedback dal corpo studentesco.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-date">15 Gennaio 2026</div>
+      <h4>Assemblea trimestrale - Q2</h4>
+      <p>Approvazione del progetto di riqualificazione spazi comuni. Presentazione dei dati sulla qualità della didattica.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-date">18 Novembre 2025</div>
+      <h4>Assemblea di inizio anno</h4>
+      <p>Presentazione del team e del programma di mandato. Prima raccolta di proposte e problemi dalla classe.</p>
+    </div>
+
+    <div class="timeline-item">
+      <div class="tl-date">8 Ottobre 2025</div>
+      <h4>Assemblea costitutiva</h4>
+      <p>Elezione del presidente e del vicepresidente del consiglio d'istituto. Definizione delle commissioni di lavoro.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="numeri">
+  <div class="section-label">I numeri</div>
+  <div class="section-title">In sintesi.</div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="num">4</div>
+      <div class="lbl">Rappresentanti</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">5</div>
+      <div class="lbl">Assemblee tenute</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">12</div>
+      <div class="lbl">Proposte approvate</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">850+</div>
+      <div class="lbl">Studenti rappresentati</div>
+    </div>
+  </div>
+</section>
+
+<div class="footer-strip">
+  <p>&copy; 2026 Rappre d'Istituto &middot; Tutti i diritti riservati &middot; <a href="mailto:info@rappre.it">Contattaci</a></p>
+</div>
 
 </body>
 </html>
