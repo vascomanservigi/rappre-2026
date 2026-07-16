@@ -5,290 +5,207 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rappre 2026 - Rappresentanti</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Titillium Web', sans-serif; background: #f5f6f7; color: #17324d; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    :root{--bs-primary:#16395e;--bs-primary-dark:#0e253d;--bs-secondary:#5d7083;--bs-dark:#17334f;--bs-light:#e9e6f2;--bs-body-color:#1a1a1a;--slim-bar:#0f2a48;--center-bar:#16395e;--footer-main:#173d66;--footer-bottom:#16395e;--card-shadow:0 1px 3px 0 #d4d4d5,0 0 0 1px #d4d4d5;--card-shadow-hover:0 2px 20px 0 rgba(0,0,0,.1)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Titillium Web',sans-serif;font-weight:300;background:#fff;color:var(--bs-body-color);font-size:16px;line-height:1.5}
+    h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif;font-weight:700}
+    a{color:var(--bs-primary);text-decoration:none}a:hover{text-decoration:underline}
 
-    .pa-top { background: #17324d; color: #fff; font-size: 0.78rem; padding: 0.35rem 0; }
-    .pa-top-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .pa-top-left { display: flex; align-items: center; gap: 0.5rem; }
-    .pa-top-left svg { width: 14px; height: 14px; fill: #fff; opacity: 0.6; }
-    .pa-top a { color: #fff; text-decoration: none; opacity: 0.7; }
+    .it-header-slim{background:var(--slim-bar);padding:6px 18px;display:flex;justify-content:space-between;align-items:center}
+    .it-header-slim-left{display:flex;align-items:center;gap:6px}
+    .it-header-slim-left svg{width:14px;height:14px;fill:#fff;opacity:.6}
+    .it-header-slim span{color:#fff;font-size:.778em;letter-spacing:.5px}
+    .it-header-slim a{color:#fff;font-size:.778em;text-decoration:none;opacity:.7}.it-header-slim a:hover{opacity:1;text-decoration:none}
 
-    .pa-header { background: #fff; border-bottom: 2px solid #0066cc; position: sticky; top: 0; z-index: 100; }
-    .pa-header-inner { max-width: 1200px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
-    .pa-logo { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; color: #17324d; }
-    .pa-logo-icon { width: 44px; height: 44px; background: #0066cc; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-    .pa-logo-icon svg { width: 24px; height: 24px; fill: #fff; }
-    .pa-logo-text strong { font-weight: 700; font-size: 1.05rem; display: block; line-height: 1.2; }
-    .pa-logo-text small { font-size: 0.72rem; font-weight: 400; color: #5b6f82; display: block; }
-    .pa-nav { margin-left: auto; display: flex; gap: 0.2rem; }
-    .pa-nav a { text-decoration: none; color: #17324d; font-size: 0.82rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.2s; }
-    .pa-nav a:hover { background: #e8f4fd; color: #0066cc; }
-    .pa-nav a.active { background: #0066cc; color: #fff; }
+    .it-header-center{background:var(--center-bar);height:80px;display:flex;align-items:center;padding:0 18px}
+    .it-header-center .it-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+    .it-header-center .it-brand-logo svg{width:32px;height:32px;fill:#fff}
+    .it-header-center .it-brand-title{font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:600;color:#fff;line-height:1.2}
+    .it-header-center .it-brand-subtitle{font-size:.75rem;font-weight:400;color:rgba(255,255,255,.65);display:block}
+    .it-header-center .it-right-zone{margin-left:auto;display:flex;align-items:center;gap:12px}
+    .it-header-center .it-right-zone a{color:#fff;font-size:.8rem;opacity:.7;text-decoration:none}.it-header-center .it-right-zone a:hover{opacity:1}
+    .it-header-center .search-btn{background:none;border:none;color:#fff;cursor:pointer;opacity:.7;padding:6px}.it-header-center .search-btn:hover{opacity:1}
+    .it-header-center .search-btn svg{width:20px;height:20px;fill:#fff}
 
-    .pa-hero-sub { background: #17324d; color: #fff; padding: 4rem 2rem 3rem; position: relative; }
-    .pa-hero-sub::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, #f5f6f7); }
-    .pa-hero-sub h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 700; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-    .pa-hero-sub p { margin-top: 0.8rem; font-size: 1.05rem; opacity: 0.75; max-width: 500px; line-height: 1.6; position: relative; z-index: 1; }
+    .it-header-navbar{background:var(--center-bar);border-top:1px solid rgba(255,255,255,.1)}
+    .it-header-navbar-inner{max-width:1127px;margin:0 auto;padding:0 18px;display:flex;gap:0}
+    .it-header-navbar a{color:#fff;text-decoration:none;padding:14px 16px;font-size:.889rem;font-weight:400;transition:background .15s}
+    .it-header-navbar a:hover{background:rgba(255,255,255,.08);text-decoration:none}
+    .it-header-navbar a.active{font-weight:600;background:rgba(255,255,255,.1)}
 
-    .pa-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-    .pa-breadcrumb { font-size: 0.78rem; color: #5b6f82; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.4rem; }
-    .pa-breadcrumb a { color: #0066cc; text-decoration: none; }
-    .pa-breadcrumb svg { width: 12px; height: 12px; fill: #5b6f82; }
+    .it-hero-sub{background:var(--bs-primary);color:#fff;padding:48px 18px}
+    .it-hero-sub h1{font-size:1.778rem;max-width:1127px;margin:0 auto}
+    .it-hero-sub p{margin-top:8px;font-size:1rem;opacity:.75;max-width:500px;line-height:1.6}
 
-    .pa-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    .it-container{max-width:1127px;margin:0 auto;padding:0 18px}
+    .it-section{padding:48px 0}
+    .it-breadcrumb{padding:16px 0;font-size:.8rem;color:var(--bs-secondary);display:flex;align-items:center;gap:6px}.it-breadcrumb a{color:var(--bs-primary)}.it-breadcrumb svg{width:12px;height:12px;fill:var(--bs-secondary)}
 
-    .pa-card { background: #fff; border: 1px solid #d9dadb; border-radius: 8px; overflow: hidden; transition: box-shadow 0.25s, transform 0.25s; }
-    .pa-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .category-top{font-size:.778em;text-transform:uppercase;letter-spacing:.9px;margin-bottom:16px}.category-top .category{font-weight:700;color:var(--bs-primary)}
+    .it-section-title{font-size:1.5rem;margin-bottom:8px}
 
-    .pa-card-top { background: #17324d; padding: 1.8rem; display: flex; align-items: center; gap: 1.2rem; position: relative; }
-    .pa-card-top::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: #0066cc; }
-    .pa-card-avatar { width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .pa-card-avatar svg { width: 28px; height: 28px; fill: #fff; }
-    .pa-card-top h3 { color: #fff; font-size: 1.2rem; font-weight: 700; }
-    .pa-card-top .ruolo { color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-top: 0.15rem; display: flex; align-items: center; gap: 0.4rem; }
-    .pa-card-top .ruolo svg { width: 12px; height: 12px; fill: rgba(255,255,255,0.6); }
+    .it-card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .it-card{background:#fff;border-radius:4px;box-shadow:var(--card-shadow);transition:box-shadow .15s,transform .15s;overflow:hidden}
+    .it-card:hover{box-shadow:var(--card-shadow-hover);transform:translateY(-2px)}
+    .it-card-header{background:var(--bs-dark);padding:24px;display:flex;align-items:center;gap:16px;position:relative}
+    .it-card-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--bs-primary)}
+    .it-card-avatar{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .it-card-avatar svg{width:26px;height:26px;fill:#fff}
+    .it-card-header h3{color:#fff;font-size:1.111rem;margin:0}
+    .it-card-header .ruolo{color:rgba(255,255,255,.55);font-size:.778rem;margin-top:2px;display:flex;align-items:center;gap:4px}
+    .it-card-header .ruolo svg{width:12px;height:12px;fill:rgba(255,255,255,.55)}
+    .it-card-body{padding:24px}
+    .it-card-body .bio{font-size:.889rem;color:#455a64;line-height:1.65;margin-bottom:16px}
+    .it-card-detail{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;font-size:.833rem;color:var(--bs-secondary)}
+    .it-card-detail svg{width:16px;height:16px;fill:var(--bs-secondary);margin-top:2px;flex-shrink:0;opacity:.5}
+    .it-card-detail .lbl{font-weight:600;color:var(--bs-body-color);min-width:80px}
+    .it-card-detail a{color:var(--bs-primary)}
+    .it-card-footer{border-top:1px solid #e6e6e6;padding:12px 24px;display:flex;justify-content:space-between;align-items:center}
+    .chip{display:inline-flex;align-items:center;gap:4px;background:#f5f5f5;border:1px solid #c5c7c9;border-radius:12px;height:24px;padding:0 12px 0 8px;font-size:.833rem;font-weight:600;color:#30475f}
+    .chip.chip-primary{border-color:var(--bs-primary);color:var(--bs-primary)}
+    .it-status{font-size:.778rem;font-weight:600;color:var(--bs-success);display:flex;align-items:center;gap:4px}
+    .it-status::before{content:'';width:7px;height:7px;background:var(--bs-success);border-radius:50%}
 
-    .pa-card-body { padding: 1.5rem 1.8rem; }
-    .pa-card-body .bio { font-size: 0.9rem; color: #455a64; line-height: 1.65; margin-bottom: 1.2rem; }
+    .it-footer{background:var(--footer-main);color:#fff;padding:48px 18px 24px}
+    .it-footer-inner{max-width:1127px;margin:0 auto}
+    .it-footer-brand{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.12)}
+    .it-footer-brand svg{width:32px;height:32px;fill:#fff;opacity:.5}
+    .it-footer-brand .brand-name{font-family:'Poppins',sans-serif;font-size:1.111rem;font-weight:600;color:#fff}
+    .it-footer-brand .brand-sub{font-size:.8rem;color:rgba(255,255,255,.5);display:block}
+    .it-footer h4{font-size:.875rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;font-weight:700}
+    .it-footer-links{list-style:none;padding:0}.it-footer-links li{margin-bottom:8px}.it-footer-links a{color:#fff;font-size:.889rem;text-decoration:none;opacity:.7}.it-footer-links a:hover{opacity:1;text-decoration:underline}
+    .it-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+    .it-footer-small-prints{background:var(--footer-bottom);margin-top:32px;padding:16px 18px}
+    .it-footer-small-prints-inner{max-width:1127px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.778rem;color:rgba(255,255,255,.5)}
 
-    .pa-card-detail { display: flex; align-items: flex-start; gap: 0.7rem; margin-bottom: 0.6rem; font-size: 0.85rem; color: #5b6f82; }
-    .pa-card-detail svg { width: 16px; height: 16px; fill: #8e8e93; margin-top: 2px; flex-shrink: 0; }
-    .pa-card-detail .lbl { font-weight: 600; color: #17324d; min-width: 80px; }
-    .pa-card-detail a { color: #0066cc; text-decoration: none; }
-    .pa-card-detail a:hover { text-decoration: underline; }
-
-    .pa-card-footer { border-top: 1px solid #d9dadb; padding: 0.9rem 1.8rem; display: flex; justify-content: space-between; align-items: center; }
-    .pa-tag { display: inline-flex; align-items: center; gap: 0.3rem; background: #e8f4fd; color: #0066cc; font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 3px; }
-    .pa-tag svg { width: 12px; height: 12px; fill: #0066cc; }
-    .pa-status { font-size: 0.78rem; font-weight: 600; color: #00875a; display: flex; align-items: center; gap: 0.35rem; }
-    .pa-status::before { content: ''; width: 7px; height: 7px; background: #00875a; border-radius: 50%; }
-
-    .pa-footer { background: #17324d; color: #fff; padding: 2.5rem 2rem; margin-top: 2rem; }
-    .pa-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .pa-footer-brand { display: flex; align-items: center; gap: 0.8rem; }
-    .pa-footer-brand svg { width: 20px; height: 20px; fill: #fff; opacity: 0.5; }
-    .pa-footer p { font-size: 0.82rem; opacity: 0.6; }
-    .pa-footer-links { display: flex; gap: 1.5rem; }
-    .pa-footer-links a { color: #fff; font-size: 0.82rem; text-decoration: none; opacity: 0.6; }
-    .pa-footer-links a:hover { opacity: 1; }
-    .pa-footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); max-width: 1200px; margin: 1.5rem auto 0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.72rem; opacity: 0.4; }
-
-    @media (max-width: 768px) {
-      .pa-cards { grid-template-columns: 1fr; }
-      .pa-header-inner { flex-wrap: wrap; }
-      .pa-nav { margin-left: 0; }
-      .pa-footer-inner { flex-direction: column; text-align: center; }
-    }
+    @media(max-width:767px){.it-card-grid{grid-template-columns:1fr}.it-header-center{height:64px}.it-header-navbar-inner{flex-wrap:wrap}.it-footer-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
-<div class="pa-top">
-  <div class="pa-top-inner">
-    <div class="pa-top-left">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-      <span>ITE G. Salvemini &middot; Anno Scolastico 2026/2027</span>
-    </div>
-    <a href="#">Accedi all'area riservata</a>
+<div class="it-header-slim">
+  <div class="it-header-slim-left">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    <span>ITE G. Salvemini &middot; Anno Scolastico 2026/2027</span>
+  </div>
+  <a href="#">Accedi all'area riservata</a>
+</div>
+
+<div class="it-header-center">
+  <a class="it-brand" href="index.html">
+    <div class="it-brand-logo"><svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
+    <div><span class="it-brand-title">Rappre d'Istituto</span><span class="it-brand-subtitle">Rappresentanti degli Studenti</span></div>
+  </a>
+  <div class="it-right-zone">
+    <a href="#">Seguici su</a>
+    <button class="search-btn" aria-label="Cerca"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
   </div>
 </div>
 
-<div class="pa-header">
-  <div class="pa-header-inner">
-    <a class="pa-logo" href="index.html">
-      <div class="pa-logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-      </div>
-      <div class="pa-logo-text">
-        <strong>Rappre d'Istituto</strong>
-        <small>Rappresentanti degli Studenti</small>
-      </div>
-    </a>
-    <div class="pa-nav">
-      <a href="index.html">Home</a>
-      <a href="rappresentanti.html" class="active">Rappresentanti</a>
-      <a href="attivita.html">Attività</a>
-      <a href="assemblea.html">Assemblea</a>
-      <a href="numeri.html">Numeri</a>
-    </div>
+<div class="it-header-navbar">
+  <div class="it-header-navbar-inner">
+    <a href="index.html">Home</a>
+    <a href="rappresentanti.html" class="active">Rappresentanti</a>
+    <a href="attivita.html">Attività</a>
+    <a href="assemblea.html">Assemblea</a>
+    <a href="numeri.html">Numeri</a>
   </div>
 </div>
 
-<div class="pa-hero-sub">
+<div class="it-hero-sub">
   <h1>Rappresentanti d'Istituto</h1>
   <p>Quattro studenti eletti a suffragio universale per rappresentare gli interessi di tutta la comunità scolastica.</p>
 </div>
 
-<div class="pa-content">
-
-  <div class="pa-breadcrumb">
+<div class="it-container">
+  <div class="it-breadcrumb">
     <a href="index.html">Home</a>
     <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
     <span>Rappresentanti</span>
   </div>
+</div>
 
-  <div class="pa-cards">
+<div class="it-section">
+  <div class="it-container">
+    <div class="it-card-grid">
 
-    <div class="pa-card">
-      <div class="pa-card-top">
-        <div class="pa-card-avatar">
-          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      <div class="it-card">
+        <div class="it-card-header">
+          <div class="it-card-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+          <div><h3>Elena Marchetti</h3><div class="ruolo"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Presidente del Consiglio</div></div>
         </div>
-        <div>
-          <h3>Elena Marchetti</h3>
-          <div class="ruolo">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            Presidente del Consiglio
-          </div>
+        <div class="it-card-body">
+          <div class="bio">Classe Quinta Liceo delle Scienze Umane. Coordina i lavori del consiglio d'istituto e rappresenta lo studentato nei confronti della dirigenza.</div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/></svg><span class="lbl">Indirizzo</span> Liceo Scienze Umane - V A</div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:elena.marchetti@istituto.it">elena.marchetti@istituto.it</a></div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2z"/></svg>Governance e Organizzazione</div>
         </div>
+        <div class="it-card-footer"><span class="chip chip-primary">Presidente</span><span class="it-status">In carica</span></div>
       </div>
-      <div class="pa-card-body">
-        <div class="bio">Classe Quinta Liceo delle Scienze Umane. Coordina i lavori del consiglio d'istituto e rappresenta lo studentato nei confronti della dirigenza scolastica.</div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
-          <span class="lbl">Indirizzo</span> Liceo Scienze Umane - V A
+
+      <div class="it-card">
+        <div class="it-card-header">
+          <div class="it-card-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+          <div><h3>Alessandro Ricci</h3><div class="ruolo"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Vicepresidente del Consiglio</div></div>
         </div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <a href="mailto:elena.marchetti@istituto.it">elena.marchetti@istituto.it</a>
+        <div class="it-card-body">
+          <div class="bio">Classe Quarta Scientifico. Supporta la presidenza e coordina le attività delle commissioni. Specializzato in questioni didattiche.</div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/></svg><span class="lbl">Indirizzo</span> Liceo Scientifico - IV B</div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:alessandro.ricci@istituto.it">alessandro.ricci@istituto.it</a></div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2z"/></svg>Didattica e Formazione</div>
         </div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          Governance e Organizzazione
-        </div>
+        <div class="it-card-footer"><span class="chip chip-primary">Vicepresidente</span><span class="it-status">In carica</span></div>
       </div>
-      <div class="pa-card-footer">
-        <span class="pa-tag"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Presidente</span>
-        <span class="pa-status">In carica</span>
+
+      <div class="it-card">
+        <div class="it-card-header">
+          <div class="it-card-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+          <div><h3>Sofia Ferraro</h3><div class="ruolo"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Consigliera d'Istituto</div></div>
+        </div>
+        <div class="it-card-body">
+          <div class="bio">Classe Terza Linguistico. Si occupa di inclusione, benessere e supporto psicologico. Ha promosso iniziative per la diversificazione dell'offerta formativa.</div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/></svg><span class="lbl">Indirizzo</span> Liceo Linguistico - III A</div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:sofia.ferraro@istituto.it">sofia.ferraro@istituto.it</a></div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2z"/></svg>Inclusione e Benessere</div>
+        </div>
+        <div class="it-card-footer"><span class="chip chip-primary">Consigliera</span><span class="it-status">In carica</span></div>
       </div>
+
+      <div class="it-card">
+        <div class="it-card-header">
+          <div class="it-card-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+          <div><h3>Marco Testa</h3><div class="ruolo"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Consigliere d'Istituto</div></div>
+        </div>
+        <div class="it-card-body">
+          <div class="bio">Classe Quinta Tecnico. Gestisce spazi, servizi e comunicazione interna. Ha coordinato il progetto di riqualificazione dell'aula studio.</div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/></svg><span class="lbl">Indirizzo</span> ITIS - Informatica - V A</div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:marco.testa@istituto.it">marco.testa@istituto.it</a></div>
+          <div class="it-card-detail"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2z"/></svg>Servizi e Comunicazione</div>
+        </div>
+        <div class="it-card-footer"><span class="chip chip-primary">Consigliere</span><span class="it-status">In carica</span></div>
+      </div>
+
     </div>
-
-    <div class="pa-card">
-      <div class="pa-card-top">
-        <div class="pa-card-avatar">
-          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-        </div>
-        <div>
-          <h3>Alessandro Ricci</h3>
-          <div class="ruolo">
-            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Vicepresidente del Consiglio
-          </div>
-        </div>
-      </div>
-      <div class="pa-card-body">
-        <div class="bio">Classe Quarta Scientifico. Supporta la presidenza e coordina le attività delle commissioni. Specializzato in questioni didattiche.</div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
-          <span class="lbl">Indirizzo</span> Liceo Scientifico - IV B
-        </div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <a href="mailto:alessandro.ricci@istituto.it">alessandro.ricci@istituto.it</a>
-        </div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          Didattica e Formazione
-        </div>
-      </div>
-      <div class="pa-card-footer">
-        <span class="pa-tag"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Vicepresidente</span>
-        <span class="pa-status">In carica</span>
-      </div>
-    </div>
-
-    <div class="pa-card">
-      <div class="pa-card-top">
-        <div class="pa-card-avatar">
-          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-        </div>
-        <div>
-          <h3>Sofia Ferraro</h3>
-          <div class="ruolo">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            Consigliera d'Istituto
-          </div>
-        </div>
-      </div>
-      <div class="pa-card-body">
-        <div class="bio">Classe Terza Linguistico. Si occupa di inclusione, benessere e supporto psicologico. Ha promosso iniziative per la diversificazione dell'offerta formativa.</div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
-          <span class="lbl">Indirizzo</span> Liceo Linguistico - III A
-        </div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <a href="mailto:sofia.ferraro@istituto.it">sofia.ferraro@istituto.it</a>
-        </div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          Inclusione e Benessere
-        </div>
-      </div>
-      <div class="pa-card-footer">
-        <span class="pa-tag"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Consigliera</span>
-        <span class="pa-status">In carica</span>
-      </div>
-    </div>
-
-    <div class="pa-card">
-      <div class="pa-card-top">
-        <div class="pa-card-avatar">
-          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-        </div>
-        <div>
-          <h3>Marco Testa</h3>
-          <div class="ruolo">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            Consigliere d'Istituto
-          </div>
-        </div>
-      </div>
-      <div class="pa-card-body">
-        <div class="bio">Classe Quinta Tecnico. Gestisce spazi, servizi e comunicazione interna. Ha coordinato il progetto di riqualificazione dell'aula studio.</div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
-          <span class="lbl">Indirizzo</span> ITIS - Informatica - V A
-        </div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <a href="mailto:marco.testa@istituto.it">marco.testa@istituto.it</a>
-        </div>
-        <div class="pa-card-detail">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          Servizi e Comunicazione
-        </div>
-      </div>
-      <div class="pa-card-footer">
-        <span class="pa-tag"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> Consigliere</span>
-        <span class="pa-status">In carica</span>
-      </div>
-    </div>
-
   </div>
 </div>
 
-<footer class="pa-footer">
-  <div class="pa-footer-inner">
-    <div class="pa-footer-brand">
+<footer class="it-footer">
+  <div class="it-footer-inner">
+    <div class="it-footer-brand">
       <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-      <p>Rappre d'Istituto &middot; Rappresentanti degli Studenti</p>
+      <div><span class="brand-name">ITE G. Salvemini</span><span class="brand-sub">Rappresentanti degli Studenti</span></div>
     </div>
-    <div class="pa-footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Note legali</a>
-      <a href="#">Accessibilità</a>
-      <a href="mailto:info@rappre.it">Contatti</a>
+    <div class="it-footer-grid">
+      <div><h4>Rappre d'Istituto</h4><p style="font-size:.889rem;opacity:.7;line-height:1.7">Il Consiglio d'Istituto rappresenta gli studenti dell'ITE G. Salvemini nelle sedi istituzionali della scuola.</p></div>
+      <div><h4>Pagine</h4><ul class="it-footer-links"><li><a href="index.html">Home</a></li><li><a href="rappresentanti.html">Rappresentanti</a></li><li><a href="attivita.html">Attività</a></li><li><a href="assemblea.html">Assemblea</a></li><li><a href="numeri.html">Numeri</a></li></ul></div>
+      <div><h4>Contatti</h4><ul class="it-footer-links"><li><a href="mailto:info@rappre.it">info@rappre.it</a></li><li><a href="#">Sito dell'Istituto</a></li></ul></div>
+      <div><h4>Legale</h4><ul class="it-footer-links"><li><a href="#">Privacy Policy</a></li><li><a href="#">Note legali</a></li><li><a href="#">Accessibilità</a></li></ul></div>
     </div>
-  </div>
-  <div class="pa-footer-bottom">
-    <span>&copy; 2027 ITE G. Salvemini - Tutti i diritti riservati</span>
-    <span>P.IVA 00000000000</span>
   </div>
 </footer>
+<div class="it-footer-small-prints"><div class="it-footer-small-prints-inner"><span>&copy; 2027 ITE G. Salvemini - Tutti i diritti riservati</span><span>P.IVA 00000000000</span></div></div>
 
 </body>
 </html>

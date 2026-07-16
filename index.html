@@ -5,266 +5,352 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rappre 2026 - Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Titillium Web', sans-serif; background: #f5f6f7; color: #17324d; -webkit-font-smoothing: antialiased; line-height: 1.6; }
-
-    /* HEADER TOP */
-    .pa-top { background: #17324d; color: #fff; font-size: 0.78rem; padding: 0.35rem 0; }
-    .pa-top-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .pa-top-left { display: flex; align-items: center; gap: 0.5rem; }
-    .pa-top-left svg { width: 14px; height: 14px; fill: #fff; opacity: 0.6; }
-    .pa-top a { color: #fff; text-decoration: none; opacity: 0.7; font-weight: 400; }
-    .pa-top a:hover { opacity: 1; }
-
-    /* HEADER */
-    .pa-header { background: #fff; border-bottom: 2px solid #0066cc; position: sticky; top: 0; z-index: 100; }
-    .pa-header-inner { max-width: 1200px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
-
-    .pa-logo { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; color: #17324d; }
-    .pa-logo-icon { width: 44px; height: 44px; background: #0066cc; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-    .pa-logo-icon svg { width: 24px; height: 24px; fill: #fff; }
-    .pa-logo-text { line-height: 1.2; }
-    .pa-logo-text strong { font-weight: 700; font-size: 1.05rem; display: block; }
-    .pa-logo-text small { font-size: 0.72rem; font-weight: 400; color: #5b6f82; display: block; }
-
-    .pa-nav { margin-left: auto; display: flex; gap: 0.2rem; }
-    .pa-nav a { text-decoration: none; color: #17324d; font-size: 0.82rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.2s; position: relative; }
-    .pa-nav a:hover { background: #e8f4fd; color: #0066cc; }
-    .pa-nav a.active { background: #0066cc; color: #fff; }
-
-    /* HERO */
-    .pa-hero { background: #17324d; color: #fff; padding: 6rem 2rem 5rem; position: relative; overflow: hidden; }
-    .pa-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, transparent, #f5f6f7); }
-    .pa-hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
-    .pa-hero h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; }
-    .pa-hero h1 span { color: #4dabf7; }
-    .pa-hero p { margin-top: 1.2rem; font-size: 1.1rem; opacity: 0.8; line-height: 1.7; }
-    .pa-hero-badge { display: inline-block; margin-top: 1.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1.2rem; border-radius: 4px; font-size: 0.82rem; font-weight: 600; }
-
-    .pa-hero-visual { display: flex; justify-content: center; }
-    .pa-hero-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 2rem; width: 100%; max-width: 380px; }
-    .pa-hero-card-row { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .pa-hero-card-row:last-child { border: none; }
-    .pa-hero-card-row .icon-circle { width: 40px; height: 40px; border-radius: 50%; background: rgba(77,171,247,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .pa-hero-card-row .icon-circle svg { width: 18px; height: 18px; fill: #4dabf7; }
-    .pa-hero-card-row .hc-text strong { color: #fff; font-size: 0.9rem; display: block; }
-    .pa-hero-card-row .hc-text span { color: rgba(255,255,255,0.5); font-size: 0.78rem; }
-
-    /* CONTENT */
-    .pa-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-    .pa-breadcrumb { font-size: 0.78rem; color: #5b6f82; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.4rem; }
-    .pa-breadcrumb a { color: #0066cc; text-decoration: none; }
-    .pa-breadcrumb svg { width: 12px; height: 12px; fill: #5b6f82; }
-
-    .pa-section { margin-bottom: 4rem; }
-    .pa-section-label { display: inline-flex; align-items: center; gap: 0.4rem; background: #0066cc; color: #fff; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 0.9rem; border-radius: 3px; margin-bottom: 1rem; }
-    .pa-section-label svg { width: 12px; height: 12px; fill: #fff; }
-    .pa-section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; color: #17324d; line-height: 1.2; margin-bottom: 0.8rem; }
-    .pa-section-desc { font-size: 1.05rem; color: #5b6f82; max-width: 640px; line-height: 1.7; }
-
-    /* STAT BOXES */
-    .pa-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 2.5rem; }
-    .pa-stat { background: #fff; border: 1px solid #d9dadb; border-radius: 8px; padding: 1.8rem 1.2rem; text-align: center; transition: box-shadow 0.2s, transform 0.2s; }
-    .pa-stat:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.06); transform: translateY(-2px); }
-    .pa-stat-icon { width: 44px; height: 44px; border-radius: 10px; background: #e8f4fd; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
-    .pa-stat-icon svg { width: 20px; height: 20px; fill: #0066cc; }
-    .pa-stat .num { font-size: 2.4rem; font-weight: 700; color: #0066cc; line-height: 1; }
-    .pa-stat .lbl { font-size: 0.82rem; color: #5b6f82; margin-top: 0.4rem; }
-
-    /* HIGHLIGHT CARD */
-    .pa-highlight { background: #fff; border: 1px solid #d9dadb; border-radius: 8px; padding: 2rem 2.5rem; margin-top: 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-    .pa-highlight-left { display: flex; align-items: center; gap: 1.2rem; }
-    .pa-highlight-icon { width: 52px; height: 52px; border-radius: 12px; background: #0066cc; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .pa-highlight-icon svg { width: 24px; height: 24px; fill: #fff; }
-    .pa-highlight h3 { font-size: 1.15rem; font-weight: 700; }
-    .pa-highlight p { color: #5b6f82; font-size: 0.92rem; margin-top: 0.2rem; }
-    .pa-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #0066cc; color: #fff; text-decoration: none; padding: 0.65rem 1.5rem; border-radius: 4px; font-size: 0.88rem; font-weight: 600; transition: background 0.2s; }
-    .pa-btn:hover { background: #0052a3; }
-    .pa-btn svg { width: 14px; height: 14px; fill: #fff; }
-
-    /* FOOTER */
-    .pa-footer { background: #17324d; color: #fff; padding: 2.5rem 2rem; margin-top: 2rem; }
-    .pa-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .pa-footer-brand { display: flex; align-items: center; gap: 0.8rem; }
-    .pa-footer-brand svg { width: 20px; height: 20px; fill: #fff; opacity: 0.5; }
-    .pa-footer p { font-size: 0.82rem; opacity: 0.6; }
-    .pa-footer-links { display: flex; gap: 1.5rem; }
-    .pa-footer-links a { color: #fff; font-size: 0.82rem; text-decoration: none; opacity: 0.6; }
-    .pa-footer-links a:hover { opacity: 1; }
-    .pa-footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); max-width: 1200px; margin: 1.5rem auto 0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.72rem; opacity: 0.4; }
-
-    @media (max-width: 900px) {
-      .pa-hero-inner { grid-template-columns: 1fr; }
-      .pa-hero-visual { display: none; }
+    :root {
+      --bs-primary: #16395e;
+      --bs-primary-dark: #0e253d;
+      --bs-secondary: #5d7083;
+      --bs-dark: #17334f;
+      --bs-light: #e9e6f2;
+      --bs-success: #008055;
+      --bs-body-color: #1a1a1a;
+      --bs-border-color: #c5c7c9;
+      --slim-bar: #0f2a48;
+      --center-bar: #16395e;
+      --footer-main: #173d66;
+      --footer-bottom: #16395e;
+      --card-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+      --card-shadow-hover: 0 2px 20px 0 rgba(0,0,0,0.1);
     }
-    @media (max-width: 768px) {
-      .pa-stats { grid-template-columns: repeat(2, 1fr); }
-      .pa-header-inner { flex-wrap: wrap; }
-      .pa-nav { margin-left: 0; }
-      .pa-footer-inner { flex-direction: column; text-align: center; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Titillium Web', sans-serif; font-weight: 300; background: #fff; color: var(--bs-body-color); font-size: 16px; line-height: 1.5; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+    a { color: var(--bs-primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── SLIM BAR ── */
+    .it-header-slim { background: var(--slim-bar); padding: 6px 18px; display: flex; justify-content: space-between; align-items: center; }
+    .it-header-slim-left { display: flex; align-items: center; gap: 6px; }
+    .it-header-slim-left svg { width: 14px; height: 14px; fill: #fff; opacity: .6; }
+    .it-header-slim span { color: #fff; font-size: .778em; letter-spacing: .5px; }
+    .it-header-slim a { color: #fff; font-size: .778em; text-decoration: none; opacity: .7; }
+    .it-header-slim a:hover { opacity: 1; text-decoration: none; }
+
+    /* ── CENTER BAR ── */
+    .it-header-center { background: var(--center-bar); height: 80px; display: flex; align-items: center; padding: 0 18px; }
+    .it-header-center .it-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+    .it-header-center .it-brand-logo { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; }
+    .it-header-center .it-brand-logo svg { width: 32px; height: 32px; fill: #fff; }
+    .it-header-center .it-brand-title { font-family: 'Poppins', sans-serif; font-size: 1.25rem; font-weight: 600; color: #fff; line-height: 1.2; }
+    .it-header-center .it-brand-subtitle { font-size: .75rem; font-weight: 400; color: rgba(255,255,255,.65); display: block; }
+    .it-header-center .it-right-zone { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .it-header-center .it-right-zone a { color: #fff; font-size: .8rem; opacity: .7; text-decoration: none; }
+    .it-header-center .it-right-zone a:hover { opacity: 1; }
+    .it-header-center .search-btn { background: none; border: none; color: #fff; cursor: pointer; opacity: .7; padding: 6px; }
+    .it-header-center .search-btn:hover { opacity: 1; }
+    .it-header-center .search-btn svg { width: 20px; height: 20px; fill: #fff; }
+
+    /* ── NAVBAR ── */
+    .it-header-navbar { background: var(--center-bar); border-top: 1px solid rgba(255,255,255,.1); }
+    .it-header-navbar-inner { max-width: 1127px; margin: 0 auto; padding: 0 18px; display: flex; gap: 0; }
+    .it-header-navbar a { color: #fff; text-decoration: none; padding: 14px 16px; font-size: .889rem; font-weight: 400; transition: background .15s; }
+    .it-header-navbar a:hover { background: rgba(255,255,255,.08); text-decoration: none; }
+    .it-header-navbar a.active { font-weight: 600; background: rgba(255,255,255,.1); }
+
+    /* ── HERO ── */
+    .it-hero { background: var(--bs-primary); color: #fff; padding: 56px 18px; }
+    .it-hero-inner { max-width: 1127px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .it-hero h1 { font-size: 2.222rem; line-height: 1.15; margin-bottom: 16px; }
+    .it-hero p { font-size: 1.1rem; opacity: .8; line-height: 1.7; max-width: 520px; }
+    .it-hero .etichetta { font-size: .778em; text-transform: uppercase; letter-spacing: .9px; color: rgba(255,255,255,.6); margin-bottom: 12px; display: block; }
+
+    .it-hero-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 4px; padding: 32px; }
+    .it-hero-card-item { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .it-hero-card-item:last-child { border: none; }
+    .it-hero-card-item .icon-circle { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .it-hero-card-item .icon-circle svg { width: 20px; height: 20px; fill: #fff; }
+    .it-hero-card-item strong { color: #fff; font-size: .95rem; display: block; font-weight: 600; }
+    .it-hero-card-item span { color: rgba(255,255,255,.5); font-size: .8rem; }
+
+    /* ── CONTAINER ── */
+    .it-container { max-width: 1127px; margin: 0 auto; padding: 0 18px; }
+    .it-section { padding: 48px 0; }
+    .it-section.bg-light { background: #f5f5f5; }
+    .it-section.full-width { max-width: 100%; }
+
+    /* ── BREADCRUMB ── */
+    .it-breadcrumb { padding: 16px 0; font-size: .8rem; color: var(--bs-secondary); display: flex; align-items: center; gap: 6px; }
+    .it-breadcrumb a { color: var(--bs-primary); }
+    .it-breadcrumb svg { width: 12px; height: 12px; fill: var(--bs-secondary); }
+
+    /* ── SECTION HEADER ── */
+    .it-section-header { margin-bottom: 32px; }
+    .category-top { font-size: .778em; text-transform: uppercase; letter-spacing: .9px; color: var(--bs-body-color); margin-bottom: 16px; }
+    .category-top .category { font-weight: 700; color: var(--bs-primary); }
+    .it-section-title { font-size: 1.5rem; margin-bottom: 8px; }
+    .it-section-desc { font-size: 1rem; color: var(--bs-secondary); max-width: 640px; line-height: 1.7; }
+
+    /* ── CARDS ── */
+    .it-card-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .it-card { background: #fff; border-radius: 4px; box-shadow: var(--card-shadow); transition: box-shadow .15s, transform .15s; overflow: hidden; }
+    .it-card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-2px); }
+    .it-card-body { padding: 24px; }
+    .it-card-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--bs-light); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .it-card-icon svg { width: 24px; height: 24px; fill: var(--bs-primary); }
+    .it-card .num { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 700; color: var(--bs-primary); }
+    .it-card .lbl { font-size: .875rem; color: var(--bs-secondary); margin-top: 4px; }
+
+    /* ── HIGHLIGHT ── */
+    .it-highlight { background: #fff; border-radius: 4px; box-shadow: var(--card-shadow); padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .it-highlight-left { display: flex; align-items: center; gap: 16px; }
+    .it-highlight-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--bs-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .it-highlight-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .it-highlight h3 { font-size: 1rem; }
+    .it-highlight p { color: var(--bs-secondary); font-size: .889rem; }
+    .it-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--bs-primary); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 4px; font-size: .889rem; font-weight: 600; transition: background .15s; border: none; cursor: pointer; }
+    .it-btn:hover { background: var(--bs-primary-dark); color: #fff; text-decoration: none; }
+    .it-btn svg { width: 14px; height: 14px; fill: #fff; }
+
+    /* ── FOOTER ── */
+    .it-footer { background: var(--footer-main); color: #fff; padding: 48px 18px 24px; }
+    .it-footer-inner { max-width: 1127px; margin: 0 auto; }
+    .it-footer-brand { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .it-footer-brand svg { width: 32px; height: 32px; fill: #fff; opacity: .5; }
+    .it-footer-brand .brand-name { font-family: 'Poppins', sans-serif; font-size: 1.111rem; font-weight: 600; color: #fff; }
+    .it-footer-brand .brand-sub { font-size: .8rem; color: rgba(255,255,255,.5); display: block; }
+    .it-footer h4 { font-size: .875rem; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 16px; font-weight: 700; }
+    .it-footer-links { list-style: none; padding: 0; }
+    .it-footer-links li { margin-bottom: 8px; }
+    .it-footer-links a { color: #fff; font-size: .889rem; text-decoration: none; opacity: .7; }
+    .it-footer-links a:hover { opacity: 1; text-decoration: underline; }
+    .it-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+    .it-footer-small-prints { background: var(--footer-bottom); margin-top: 32px; padding: 16px 18px; }
+    .it-footer-small-prints-inner { max-width: 1127px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: .778rem; color: rgba(255,255,255,.5); }
+    .it-footer-small-prints a { color: rgba(255,255,255,.5); }
+
+    @media (max-width: 991px) {
+      .it-hero-inner { grid-template-columns: 1fr; }
+      .it-hero-card { display: none; }
+      .it-card-row { grid-template-columns: repeat(2, 1fr); }
+      .it-footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 767px) {
+      .it-card-row { grid-template-columns: 1fr; }
+      .it-header-center { height: 64px; }
+      .it-header-navbar-inner { flex-wrap: wrap; }
+      .it-footer-grid { grid-template-columns: 1fr; }
+      .it-header-slim { flex-wrap: wrap; gap: 6px; }
     }
   </style>
 </head>
 <body>
 
-<div class="pa-top">
-  <div class="pa-top-inner">
-    <div class="pa-top-left">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-      <span>ITE G. Salvemini &middot; Anno Scolastico 2026/2027</span>
-    </div>
-    <a href="#">Accedi all'area riservata</a>
+<!-- SLIM BAR -->
+<div class="it-header-slim">
+  <div class="it-header-slim-left">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    <span>ITE G. Salvemini &middot; Anno Scolastico 2026/2027</span>
   </div>
+  <a href="#">Accedi all'area riservata</a>
 </div>
 
-<div class="pa-header">
-  <div class="pa-header-inner">
-    <a class="pa-logo" href="index.html">
-      <div class="pa-logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-      </div>
-      <div class="pa-logo-text">
-        <strong>Rappre d'Istituto</strong>
-        <small>Rappresentanti degli Studenti</small>
-      </div>
-    </a>
-    <div class="pa-nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="rappresentanti.html">Rappresentanti</a>
-      <a href="attivita.html">Attività</a>
-      <a href="assemblea.html">Assemblea</a>
-      <a href="numeri.html">Numeri</a>
+<!-- CENTER BAR -->
+<div class="it-header-center">
+  <a class="it-brand" href="index.html">
+    <div class="it-brand-logo">
+      <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
     </div>
-  </div>
-</div>
-
-<div class="pa-hero">
-  <div class="pa-hero-inner">
     <div>
-      <h1>La voce degli<br>studenti del<br><span>ITE G. Salvemini</span></h1>
-      <p>Trasparenza, partecipazione e risultati. Quattro rappresentanti eletti dagli studenti per tutelare i loro diritti e migliorare la vita scolastica.</p>
-      <span class="pa-hero-badge">Anno Scolastico 2026 / 2027</span>
+      <span class="it-brand-title">Rappre d'Istituto</span>
+      <span class="it-brand-subtitle">Rappresentanti degli Studenti</span>
     </div>
-    <div class="pa-hero-visual">
-      <div class="pa-hero-card">
-        <div class="pa-hero-card-row">
-          <div class="icon-circle">
-            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-          </div>
-          <div class="hc-text">
-            <strong>4 Rappresentanti</strong>
-            <span>Eletti a suffragio universale</span>
-          </div>
+  </a>
+  <div class="it-right-zone">
+    <a href="#">Seguici su</a>
+    <button class="search-btn" aria-label="Cerca">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<div class="it-header-navbar">
+  <div class="it-header-navbar-inner">
+    <a href="index.html" class="active">Home</a>
+    <a href="rappresentanti.html">Rappresentanti</a>
+    <a href="attivita.html">Attività</a>
+    <a href="assemblea.html">Assemblea</a>
+    <a href="numeri.html">Numeri</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="it-hero">
+  <div class="it-hero-inner">
+    <div>
+      <span class="etichetta">Anno Scolastico 2026 / 2027</span>
+      <h1>La voce degli studenti dell'ITE G. Salvemini</h1>
+      <p>Trasparenza, partecipazione e risultati. Quattro rappresentanti eletti dagli studenti per tutelare i loro diritti e migliorare la vita scolastica.</p>
+    </div>
+    <div class="it-hero-card">
+      <div class="it-hero-card-item">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
         </div>
-        <div class="pa-hero-card-row">
-          <div class="icon-circle">
+        <div>
+          <strong>4 Rappresentanti</strong>
+          <span>Eletti a suffragio universale</span>
+        </div>
+      </div>
+      <div class="it-hero-card-item">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        </div>
+        <div>
+          <strong>5 Assemblee</strong>
+          <span>Democrazia partecipativa</span>
+        </div>
+      </div>
+      <div class="it-hero-card-item">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+        <div>
+          <strong>12 Proposte</strong>
+          <span>Approvate e realizzate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENUTO -->
+<div class="it-container">
+  <div class="it-breadcrumb">
+    <a href="index.html">Home</a>
+  </div>
+</div>
+
+<div class="it-section">
+  <div class="it-container">
+    <div class="it-section-header">
+      <div class="category-top"><span class="category">Missione</span></div>
+      <h2 class="it-section-title">Tutelare i diritti degli studenti</h2>
+      <p class="it-section-desc">Il Consiglio d'Istituto è l'organo elettivo e democratico che rappresenta gli studenti presso la comunità scolastica. Ascoltiamo, proponiamo e decidiamo insieme.</p>
+    </div>
+  </div>
+</div>
+
+<div class="it-section bg-light full-width">
+  <div class="it-container">
+    <div class="it-card-row">
+      <div class="it-card">
+        <div class="it-card-body" style="text-align:center">
+          <div class="it-card-icon" style="margin:0 auto 16px">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <div class="num">4</div>
+          <div class="lbl">Rappresentanti</div>
+        </div>
+      </div>
+      <div class="it-card">
+        <div class="it-card-body" style="text-align:center">
+          <div class="it-card-icon" style="margin:0 auto 16px">
             <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
           </div>
-          <div class="hc-text">
-            <strong>5 Assemblee</strong>
-            <span>Democrazia partecipativa</span>
-          </div>
+          <div class="num">5</div>
+          <div class="lbl">Assemblee</div>
         </div>
-        <div class="pa-hero-card-row">
-          <div class="icon-circle">
+      </div>
+      <div class="it-card">
+        <div class="it-card-body" style="text-align:center">
+          <div class="it-card-icon" style="margin:0 auto 16px">
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
-          <div class="hc-text">
-            <strong>12 Proposte</strong>
-            <span>Approvate e realizzate</span>
+          <div class="num">12</div>
+          <div class="lbl">Proposte</div>
+        </div>
+      </div>
+      <div class="it-card">
+        <div class="it-card-body" style="text-align:center">
+          <div class="it-card-icon" style="margin:0 auto 16px">
+            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
           </div>
+          <div class="num">850+</div>
+          <div class="lbl">Studenti</div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="pa-content">
-
-  <div class="pa-breadcrumb">
-    <a href="index.html">Home</a>
-    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-  </div>
-
-  <div class="pa-section">
-    <div class="pa-section-label">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-      Missione
-    </div>
-    <div class="pa-section-title">Tutelare i diritti<br>degli studenti</div>
-    <p class="pa-section-desc">
-      Il Consiglio d'Istituto è l'organo elettivo e democratico che rappresenta
-      gli studenti presso la comunità scolastica. Ascoltiamo, proponiamo e
-      decidiamo insieme per una scuola migliore.
-    </p>
-  </div>
-
-  <div class="pa-stats">
-    <div class="pa-stat">
-      <div class="pa-stat-icon">
-        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+<div class="it-section">
+  <div class="it-container">
+    <div class="it-highlight">
+      <div class="it-highlight-left">
+        <div class="it-highlight-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <div>
+          <h3>Scopri il nostro team</h3>
+          <p>Conosci i quattro rappresentanti eletti dagli studenti.</p>
+        </div>
       </div>
-      <div class="num">4</div>
-      <div class="lbl">Rappresentanti</div>
-    </div>
-    <div class="pa-stat">
-      <div class="pa-stat-icon">
-        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-      </div>
-      <div class="num">5</div>
-      <div class="lbl">Assemblee</div>
-    </div>
-    <div class="pa-stat">
-      <div class="pa-stat-icon">
-        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-      </div>
-      <div class="num">12</div>
-      <div class="lbl">Proposte</div>
-    </div>
-    <div class="pa-stat">
-      <div class="pa-stat-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-      </div>
-      <div class="num">850+</div>
-      <div class="lbl">Studenti</div>
+      <a href="rappresentanti.html" class="it-btn">Rappresentanti <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></a>
     </div>
   </div>
-
-  <div class="pa-highlight">
-    <div class="pa-highlight-left">
-      <div class="pa-highlight-icon">
-        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-      </div>
-      <div>
-        <h3>Scopri il nostro team</h3>
-        <p>Conosci i quattro rappresentanti eletti dagli studenti.</p>
-      </div>
-    </div>
-    <a href="rappresentanti.html" class="pa-btn">Rappresentanti <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></a>
-  </div>
-
 </div>
 
-<footer class="pa-footer">
-  <div class="pa-footer-inner">
-    <div class="pa-footer-brand">
+<!-- FOOTER -->
+<footer class="it-footer">
+  <div class="it-footer-inner">
+    <div class="it-footer-brand">
       <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-      <p>Rappre d'Istituto &middot; Rappresentanti degli Studenti</p>
+      <div>
+        <span class="brand-name">ITE G. Salvemini</span>
+        <span class="brand-sub">Rappresentanti degli Studenti</span>
+      </div>
     </div>
-    <div class="pa-footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Note legali</a>
-      <a href="#">Accessibilità</a>
-      <a href="mailto:info@rappre.it">Contatti</a>
+    <div class="it-footer-grid">
+      <div>
+        <h4>Rappre d'Istituto</h4>
+        <p style="font-size:.889rem;opacity:.7;line-height:1.7">Il Consiglio d'Istituto rappresenta gli studenti dell'ITE G. Salvemini nelle sedi istituzionali della scuola.</p>
+      </div>
+      <div>
+        <h4>Pagine</h4>
+        <ul class="it-footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rappresentanti.html">Rappresentanti</a></li>
+          <li><a href="attivita.html">Attività</a></li>
+          <li><a href="assemblea.html">Assemblea</a></li>
+          <li><a href="numeri.html">Numeri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <ul class="it-footer-links">
+          <li><a href="mailto:info@rappre.it">info@rappre.it</a></li>
+          <li><a href="#">Sito dell'Istituto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legale</h4>
+        <ul class="it-footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Note legali</a></li>
+          <li><a href="#">Accessibilità</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="pa-footer-bottom">
+</footer>
+<div class="it-footer-small-prints">
+  <div class="it-footer-small-prints-inner">
     <span>&copy; 2027 ITE G. Salvemini - Tutti i diritti riservati</span>
     <span>P.IVA 00000000000</span>
   </div>
-</footer>
+</div>
 
 </body>
 </html>
