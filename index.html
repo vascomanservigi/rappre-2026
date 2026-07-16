@@ -4,554 +4,820 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rappre 2026 - Rappresentanti d'Istituto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-      background: #fff;
-      color: #1d1d1f;
+      font-family: 'Titillium Web', sans-serif;
+      background: #f5f6f7;
+      color: #17324d;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      padding: 0.9rem 1rem;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: #1d1d1f;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: inherit;
-      opacity: 0.7;
-      transition: opacity 0.25s;
-    }
-
-    nav a:hover { opacity: 1; }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-      background: #fbfbfd;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      max-width: 800px;
-    }
-
-    .hero .subtitle {
-      margin-top: 1.2rem;
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      color: #6e6e73;
-      max-width: 600px;
-      font-weight: 400;
-      line-height: 1.5;
-    }
-
-    .hero .year-badge {
-      margin-top: 2rem;
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      background: #1d1d1f;
+    /* ── HEADER ISTITUZIONALE ── */
+    .pa-header-top {
+      background: #17324d;
       color: #fff;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-    }
-
-    section {
-      padding: 6rem 2rem;
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    .section-label {
       font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #6e6e73;
-      margin-bottom: 0.6rem;
+      padding: 0.4rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .section-title {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
-      margin-bottom: 1.2rem;
+    .pa-header-top a {
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.8;
     }
 
-    .section-desc {
-      font-size: 1.15rem;
-      color: #6e6e73;
-      max-width: 640px;
-      line-height: 1.6;
+    .pa-header-top a:hover { opacity: 1; }
+
+    .pa-header {
+      background: #fff;
+      border-bottom: 2px solid #0066cc;
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    .rappre-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+    .pa-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex;
+      align-items: center;
       gap: 1.5rem;
-      margin-top: 3.5rem;
     }
 
-    .rappre-card {
-      background: #fbfbfd;
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      transition: background 0.3s;
-      border: 1px solid rgba(0,0,0,0.04);
+    .pa-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: #17324d;
     }
 
-    .rappre-card:hover {
-      background: #f5f5f7;
-    }
-
-    .rappre-card .avatar-lg {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #1d1d1f, #424245);
+    .pa-logo .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: #0066cc;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 1.6rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .pa-logo .logo-text {
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .pa-logo .logo-sub {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #5b6f82;
+    }
+
+    .pa-nav {
+      margin-left: auto;
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .pa-nav a {
+      text-decoration: none;
+      color: #17324d;
+      font-size: 0.85rem;
       font-weight: 600;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.02em;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.2s;
     }
 
-    .rappre-card h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
+    .pa-nav a:hover, .pa-nav a.active {
+      background: #0066cc;
+      color: #fff;
     }
 
-    .rappre-card .role {
-      font-size: 0.95rem;
-      color: #6e6e73;
-      margin-top: 0.25rem;
+    /* ── HERO PA ── */
+    .pa-hero {
+      background: linear-gradient(135deg, #17324d 0%, #0066cc 100%);
+      color: #fff;
+      padding: 5rem 2rem;
+      text-align: center;
     }
 
-    .rappre-card .bio {
+    .pa-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .pa-hero p {
       margin-top: 1rem;
-      font-size: 0.95rem;
-      color: #424245;
+      font-size: 1.15rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
       line-height: 1.6;
     }
 
-    .rappre-card .contact {
-      margin-top: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.88rem;
-      color: #6e6e73;
+    .pa-hero .badge-anno {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.4rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
-    .rappre-card .contact a {
+    /* ── CONTENUTO ── */
+    .pa-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .pa-breadcrumb {
+      font-size: 0.8rem;
+      color: #5b6f82;
+      margin-bottom: 2rem;
+    }
+
+    .pa-breadcrumb a {
       color: #0066cc;
       text-decoration: none;
     }
 
-    .rappre-card .contact a:hover {
+    .pa-breadcrumb a:hover {
       text-decoration: underline;
     }
 
-    .divider {
-      height: 1px;
-      background: rgba(0,0,0,0.06);
-      max-width: 1080px;
-      margin: 0 auto;
+    .pa-section {
+      margin-bottom: 3.5rem;
     }
 
-    .activites-grid {
+    .pa-section-label {
+      display: inline-block;
+      background: #0066cc;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 3px;
+      margin-bottom: 0.8rem;
+    }
+
+    .pa-section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: #17324d;
+      margin-bottom: 0.8rem;
+    }
+
+    .pa-section-desc {
+      font-size: 1.05rem;
+      color: #5b6f82;
+      max-width: 700px;
+      line-height: 1.65;
+    }
+
+    /* ── CARD RAPPRESENTANTI ── */
+    .pa-cards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
 
-    .activity-item {
-      padding: 2rem;
-      border-radius: 16px;
-      background: #fbfbfd;
-      border: 1px solid rgba(0,0,0,0.04);
+    .pa-card {
+      background: #fff;
+      border: 1px solid #d9dadb;
+      border-radius: 4px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
     }
 
-    .activity-item:hover {
-      background: #f5f5f7;
+    .pa-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
 
-    .activity-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
+    .pa-card-top {
+      background: #0066cc;
+      padding: 1.5rem 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .pa-card-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pa-card-top h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .pa-card-top .ruolo {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.82rem;
+      font-weight: 400;
+    }
+
+    .pa-card-body {
+      padding: 1.5rem 1.8rem;
+    }
+
+    .pa-card-body .bio {
+      font-size: 0.92rem;
+      color: #455a64;
+      line-height: 1.6;
       margin-bottom: 1rem;
     }
 
-    .activity-item h4 {
-      font-size: 1.15rem;
-      font-weight: 600;
+    .pa-card-body .detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.88rem;
+      color: #5b6f82;
     }
 
-    .activity-item p {
-      font-size: 0.92rem;
-      color: #6e6e73;
+    .pa-card-body .detail-row .label-det {
+      font-weight: 600;
+      color: #17324d;
+      min-width: 90px;
+    }
+
+    .pa-card-body .detail-row a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .pa-card-body .detail-row a:hover {
+      text-decoration: underline;
+    }
+
+    .pa-card-footer {
+      border-top: 1px solid #d9dadb;
+      padding: 0.8rem 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pa-tag {
+      display: inline-block;
+      background: #e8f4fd;
+      color: #0066cc;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.7rem;
+      border-radius: 3px;
+    }
+
+    .pa-status {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #00875a;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .pa-status::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: #00875a;
+      border-radius: 50%;
+    }
+
+    /* ── ATTIVITÀ ── */
+    .pa-att-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .pa-att-item {
+      background: #fff;
+      border: 1px solid #d9dadb;
+      border-left: 4px solid #0066cc;
+      border-radius: 4px;
+      padding: 1.5rem 1.8rem;
+    }
+
+    .pa-att-item h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #17324d;
+    }
+
+    .pa-att-item p {
+      font-size: 0.9rem;
+      color: #5b6f82;
       margin-top: 0.5rem;
       line-height: 1.55;
     }
 
-    .activity-item .date {
+    .pa-att-item .data {
       margin-top: 0.8rem;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #8e8e93;
-      font-weight: 500;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    .timeline {
-      margin-top: 3rem;
+    /* ── ASSEMBLEA ── */
+    .pa-timeline {
+      margin-top: 2rem;
       position: relative;
+      padding-left: 2rem;
     }
 
-    .timeline::before {
+    .pa-timeline::before {
       content: '';
       position: absolute;
-      left: 0;
+      left: 5px;
       top: 0;
       bottom: 0;
       width: 2px;
-      background: #e5e5e7;
+      background: #d9dadb;
     }
 
-    .timeline-item {
-      padding-left: 2rem;
-      padding-bottom: 2.5rem;
+    .pa-tl-item {
       position: relative;
+      padding-bottom: 2.5rem;
     }
 
-    .timeline-item::before {
+    .pa-tl-item::before {
       content: '';
       position: absolute;
-      left: -5px;
+      left: -2rem;
       top: 6px;
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: #1d1d1f;
+      background: #0066cc;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px #0066cc;
     }
 
-    .timeline-item .tl-date {
-      font-size: 0.8rem;
+    .pa-tl-item .tl-data {
+      font-size: 0.78rem;
       color: #8e8e93;
-      font-weight: 500;
-    }
-
-    .timeline-item h4 {
-      font-size: 1.05rem;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pa-tl-item h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #17324d;
       margin-top: 0.3rem;
     }
 
-    .timeline-item p {
-      font-size: 0.92rem;
-      color: #6e6e73;
+    .pa-tl-item p {
+      font-size: 0.9rem;
+      color: #5b6f82;
       margin-top: 0.3rem;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    .stats-row {
+    /* ── NUMERI ── */
+    .pa-numeri {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
 
-    .stat-box {
+    .pa-num-box {
+      background: #fff;
+      border: 1px solid #d9dadb;
+      border-radius: 4px;
+      padding: 2rem 1.5rem;
       text-align: center;
-      padding: 2rem 1rem;
     }
 
-    .stat-box .num {
-      font-size: 3rem;
+    .pa-num-box .num {
+      font-size: 2.8rem;
       font-weight: 700;
-      letter-spacing: -0.03em;
-      color: #1d1d1f;
+      color: #0066cc;
+      line-height: 1;
     }
 
-    .stat-box .lbl {
+    .pa-num-box .lbl {
       font-size: 0.85rem;
-      color: #6e6e73;
-      margin-top: 0.3rem;
+      color: #5b6f82;
+      margin-top: 0.5rem;
     }
 
-    .footer-strip {
-      background: #1d1d1f;
+    /* ── FOOTER ── */
+    .pa-footer {
+      background: #17324d;
       color: #fff;
-      text-align: center;
-      padding: 3rem 2rem;
-      font-size: 0.85rem;
+      padding: 2.5rem 2rem;
     }
 
-    .footer-strip a {
-      color: #2997ff;
+    .pa-footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .pa-footer p {
+      font-size: 0.82rem;
+      opacity: 0.7;
+    }
+
+    .pa-footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .pa-footer-links a {
+      color: #fff;
+      font-size: 0.82rem;
       text-decoration: none;
+      opacity: 0.7;
+    }
+
+    .pa-footer-links a:hover { opacity: 1; }
+
+    .pa-footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      max-width: 1200px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      opacity: 0.5;
     }
 
     @media (max-width: 768px) {
-      .rappre-grid, .activites-grid, .stats-row {
-        grid-template-columns: 1fr;
-      }
-      nav { gap: 1.2rem; font-size: 0.75rem; flex-wrap: wrap; }
-      section { padding: 4rem 1.5rem; }
+      .pa-cards, .pa-att-grid, .pa-numeri { grid-template-columns: 1fr; }
+      .pa-header-inner { flex-wrap: wrap; }
+      .pa-nav { margin-left: 0; }
+      .pa-footer-inner { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="#chi-siamo">Chi siamo</a>
-  <a href="#rappresentanti">Rappresentanti</a>
-  <a href="#attivita">Attività</a>
-  <a href="#assemblea">Assemblea</a>
-  <a href="#numeri">Numeri</a>
-</nav>
+<div class="pa-header-top">
+  <span>Istituto Superiore &middot; Anno Scolastico 2025/2026</span>
+  <a href="#">Accedi all'area riservata</a>
+</div>
 
-<div class="hero">
-  <span class="year-badge">Anno Scolastico 2025 / 2026</span>
+<div class="pa-header">
+  <div class="pa-header-inner">
+    <a class="pa-logo" href="#">
+      <div class="logo-icon">RI</div>
+      <div>
+        <div class="logo-text">Rappre d'Istituto</div>
+        <div class="logo-sub">Rappresentanza Studentesca</div>
+      </div>
+    </a>
+    <div class="pa-nav">
+      <a href="#missione">Missione</a>
+      <a href="#rappre">Rappresentanti</a>
+      <a href="#attivita">Attività</a>
+      <a href="#assemblea">Assemblea</a>
+      <a href="#numeri">Numeri</a>
+    </div>
+  </div>
+</div>
+
+<div class="pa-hero">
   <h1>Rappresentanti d'Istituto</h1>
-  <p class="subtitle">La voce degli studenti. Un gruppo che lavora ogni giorno per migliorare la vita scolastica di tutti.</p>
+  <p>La rappresentanza studentesca al servizio della comunità scolastica. Trasparenza, partecipazione e results.</p>
+  <span class="badge-anno">A.S. 2025 / 2026</span>
 </div>
 
-<section id="chi-siamo">
-  <div class="section-label">Missione</div>
-  <div class="section-title">Costruire insieme<br>il futuro della scuola.</div>
-  <p class="section-desc">
-    I rappresentanti d'istituto sono eletti dagli studenti per rappresentarne gli interessi
-    presso il consiglio d'istituto. Ascoltano, propongono e decidono insieme alla comunità scolastica.
-  </p>
-</section>
+<div class="pa-content">
 
-<div class="divider"></div>
-
-<section id="rappresentanti">
-  <div class="section-label">Il nostro team</div>
-  <div class="section-title">Quattro voci,<br>un obiettivo solo.</div>
-  <p class="section-desc">
-    Scelti dagli studenti, al servizio degli studenti. Ognuno porta la propria esperienza
-    e visione per rappresentare tutta la comunità scolastica.
-  </p>
-
-  <div class="rappre-grid">
-
-    <div class="rappre-card">
-      <div class="avatar-lg">EM</div>
-      <h3>Elena Marchetti</h3>
-      <div class="role">Presidente di Consiglio</div>
-      <div class="bio">
-        Classe Quinta Liceo. Si occupa della coordinatione del consiglio d'istituto
-        e delle relazioni con la dirigenza scolastica. Porta avanti le proposte studentesche
-        con determinazione e visione strategica.
-      </div>
-      <div class="contact">
-        <a href="mailto:elena.marchetti@istituto.it">elena.marchetti@istituto.it</a>
-        <span>Referente per: Governance e Organizzazione</span>
-      </div>
-    </div>
-
-    <div class="rappre-card">
-      <div class="avatar-lg">AR</div>
-      <h3>Alessandro Ricci</h3>
-      <div class="role">Vicepresidente</div>
-      <div class="bio">
-        Classe Quarta Scientifico. Follow-up delle attività commissioni e supporto
-        alla presidenza. Specializzato in questioni didattiche e qualità dell'insegnamento.
-      </div>
-      <div class="contact">
-        <a href="mailto:alessandro.ricci@istituto.it">alessandro.ricci@istituto.it</a>
-        <span>Referente per: Didattica e Formazione</span>
-      </div>
-    </div>
-
-    <div class="rappre-card">
-      <div class="avatar-lg">SF</div>
-      <h3>Sofia Ferraro</h3>
-      <div class="role">Consigliera d'Istituto</div>
-      <div class="bio">
-        Classe Terza Linguistico. Si dedica al benessere degli studenti e all'inclusione.
-        Ha promosso iniziative per il supporto psicologico e la diversificazione dell'offerta formativa.
-      </div>
-      <div class="contact">
-        <a href="mailto:sofia.ferraro@istituto.it">sofia.ferraro@istituto.it</a>
-        <span>Referente per: Inclusione e Benessere</span>
-      </div>
-    </div>
-
-    <div class="rappre-card">
-      <div class="avatar-lg">MT</div>
-      <h3>Marco Testa</h3>
-      <div class="role">Consigliere d'Istituto</div>
-      <div class="bio">
-        Classe Quinta Tecnico. Si occupa di spazi, servizi e comunicazione interna.
-        Ha gestito il progetto di rinnovo dell'aula studio e il potenziamento dei servizi digitali.
-      </div>
-      <div class="contact">
-        <a href="mailto:marco.testa@istituto.it">marco.testa@istituto.it</a>
-        <span>Referente per: Servizi e Comunicazione</span>
-      </div>
-    </div>
-
+  <div class="pa-breadcrumb">
+    <a href="#">Home</a> &rsaquo; Rappresentanza Studentesca &rsaquo; Rappresentanti d'Istituto
   </div>
-</section>
 
-<div class="divider"></div>
-
-<section id="attivita">
-  <div class="section-label">Attività svolte</div>
-  <div class="section-title">Quello che abbiamo<br>fatto finora.</div>
-  <p class="section-desc">
-    Ogni trimestre organizziamo assemblee, incontri con il preside e progetti
-    per migliorare la scuola. Ecco i risultati principali.
-  </p>
-
-  <div class="activites-grid">
-
-    <div class="activity-item">
-      <div class="activity-icon" style="background:#e8f0fe; color:#1a73e8;">&#128218;</div>
-      <h4>Riforma del regolamento interno</h4>
-      <p>Revisione completa del regolamento scolastico con proposte studentesche su assenze, ritardi e codice di condotta.</p>
-      <div class="date">Febbraio 2026</div>
-    </div>
-
-    <div class="activity-item">
-      <div class="activity-icon" style="background:#fce8e6; color:#d93025;">&#127968;</div>
-      <h4>Miglioramento spazi comuni</h4>
-      <p>Riqualificazione dell'aula studio e della sala mensa con nuovi arredi, prese USB e aree di relax.</p>
-      <div class="date">Gennaio 2026</div>
-    </div>
-
-    <div class="activity-item">
-      <div class="activity-icon" style="background:#e6f4ea; color:#1e8e3e;">&#128101;</div>
-      <h4>Settimana della legalità</h4>
-      <p>Organizzazione di laboratori, conferenze e attività su tema legalità, rispetto e cittadinanza attiva.</p>
-      <div class="date">Novembre 2025</div>
-    </div>
-
-    <div class="activity-item">
-      <div class="activity-icon" style="background:#fef7e0; color:#e37400;">&#128241;</div>
-      <h4>Digitale e comunicazione</h4>
-      <p>Lancio dell'account Instagram del rappre e del canale Telegram per aggiornamenti in tempo reale.</p>
-      <div class="date">Ottobre 2025</div>
-    </div>
-
+  <!-- MISSIONE -->
+  <div class="pa-section" id="missione">
+    <span class="pa-section-label">Missione</span>
+    <div class="pa-section-title">Tutelare i diritti degli studenti</div>
+    <p class="pa-section-desc">
+      Il Consiglio d'Istituto è l'organo elettivo e democratico che rappresenta
+      gli studenti presso la comunità scolastica. I rappresentanti ascoltano,
+      raccolgono proposte e le portano avanti nelle sedi istituzionali.
+    </p>
   </div>
-</section>
 
-<div class="divider"></div>
+  <!-- RAPPRESENTANTI -->
+  <div class="pa-section" id="rappre">
+    <span class="pa-section-label">Rappresentanti</span>
+    <div class="pa-section-title">Il team eletto dagli studenti</div>
+    <p class="pa-section-desc">
+      Quattro studenti eletti a suffragio universale per rappresentare
+      gli interessi di tutta la comunità scolastica.
+    </p>
 
-<section id="assemblea">
-  <div class="section-label">Assemblea d'Istituto</div>
-  <div class="section-title">Le assemblee<br>di quest'anno.</div>
-  <p class="section-desc">
-    L'assemblea d'istituto è il momento democratico più importante.
-    Qui gli studenti esprimono la loro voce e i rappresentanti presentano i risultati.
-  </p>
+    <div class="pa-cards">
 
-  <div class="timeline">
+      <div class="pa-card">
+        <div class="pa-card-top">
+          <div class="pa-card-avatar">EM</div>
+          <div>
+            <h3>Elena Marchetti</h3>
+            <div class="ruolo">Presidente del Consiglio d'Istituto</div>
+          </div>
+        </div>
+        <div class="pa-card-body">
+          <div class="bio">
+            Classe Quinta Liceo delle Scienze Umane. Coordina i lavori del consiglio
+            d'istituto e rappresenta lo studentato nei confronti della dirigenza.
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Indirizzo</span>
+            <span>Liceo Scienze Umane - V A</span>
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Email</span>
+            <a href="mailto:elena.marchetti@istituto.it">elena.marchetti@istituto.it</a>
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Referente</span>
+            <span>Governance e Organizzazione</span>
+          </div>
+        </div>
+        <div class="pa-card-footer">
+          <span class="pa-tag">Presidente</span>
+          <span class="pa-status">In carica</span>
+        </div>
+      </div>
 
-    <div class="timeline-item">
-      <div class="tl-date">12 Giugno 2026</div>
-      <h4>Assemblea finale di anno</h4>
-      <p>Presentazione del bilancio annuale, elezione dei nuovi rappresentanti e votazione delle priorità per il prossimo anno.</p>
-    </div>
+      <div class="pa-card">
+        <div class="pa-card-top">
+          <div class="pa-card-avatar">AR</div>
+          <div>
+            <h3>Alessandro Ricci</h3>
+            <div class="ruolo">Vicepresidente del Consiglio</div>
+          </div>
+        </div>
+        <div class="pa-card-body">
+          <div class="bio">
+            Classe Quarta Scientifico. Supporta la presidenza e coordina le attività
+            delle commissioni. Specializzato in questioni didattiche.
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Indirizzo</span>
+            <span>Liceo Scientifico - IV B</span>
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Email</span>
+            <a href="mailto:alessandro.ricci@istituto.it">alessandro.ricci@istituto.it</a>
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Referente</span>
+            <span>Didattica e Formazione</span>
+          </div>
+        </div>
+        <div class="pa-card-footer">
+          <span class="pa-tag">Vicepresidente</span>
+          <span class="pa-status">In carica</span>
+        </div>
+      </div>
 
-    <div class="timeline-item">
-      <div class="tl-date">20 Marzo 2026</div>
-      <h4>Assemblea trimestrale - Q3</h4>
-      <p>Discussione sullo stato del regolamento, aggiornamento progetti in corso e raccolta feedback dal corpo studentesco.</p>
-    </div>
+      <div class="pa-card">
+        <div class="pa-card-top">
+          <div class="pa-card-avatar">SF</div>
+          <div>
+            <h3>Sofia Ferraro</h3>
+            <div class="ruolo">Consigliera d'Istituto</div>
+          </div>
+        </div>
+        <div class="pa-card-body">
+          <div class="bio">
+            Classe Terza Linguistico. Si occupa di inclusione, benessere e supporto
+            psicologico. Ha promosso iniziative per la diversificazione dell'offerta formativa.
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Indirizzo</span>
+            <span>Liceo Linguistico - III A</span>
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Email</span>
+            <a href="mailto:sofia.ferraro@istituto.it">sofia.ferraro@istituto.it</a>
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Referente</span>
+            <span>Inclusione e Benessere</span>
+          </div>
+        </div>
+        <div class="pa-card-footer">
+          <span class="pa-tag">Consigliera</span>
+          <span class="pa-status">In carica</span>
+        </div>
+      </div>
 
-    <div class="timeline-item">
-      <div class="tl-date">15 Gennaio 2026</div>
-      <h4>Assemblea trimestrale - Q2</h4>
-      <p>Approvazione del progetto di riqualificazione spazi comuni. Presentazione dei dati sulla qualità della didattica.</p>
-    </div>
+      <div class="pa-card">
+        <div class="pa-card-top">
+          <div class="pa-card-avatar">MT</div>
+          <div>
+            <h3>Marco Testa</h3>
+            <div class="ruolo">Consigliere d'Istituto</div>
+          </div>
+        </div>
+        <div class="pa-card-body">
+          <div class="bio">
+            Classe Quinta Tecnico. Gestisce spazi, servizi e comunicazione interna.
+            Ha coordinato il progetto di riqualificazione dell'aula studio.
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Indirizzo</span>
+            <span>ITIS - Informatica - V A</span>
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Email</span>
+            <a href="mailto:marco.testa@istituto.it">marco.testa@istituto.it</a>
+          </div>
+          <div class="detail-row">
+            <span class="label-det">Referente</span>
+            <span>Servizi e Comunicazione</span>
+          </div>
+        </div>
+        <div class="pa-card-footer">
+          <span class="pa-tag">Consigliere</span>
+          <span class="pa-status">In carica</span>
+        </div>
+      </div>
 
-    <div class="timeline-item">
-      <div class="tl-date">18 Novembre 2025</div>
-      <h4>Assemblea di inizio anno</h4>
-      <p>Presentazione del team e del programma di mandato. Prima raccolta di proposte e problemi dalla classe.</p>
-    </div>
-
-    <div class="timeline-item">
-      <div class="tl-date">8 Ottobre 2025</div>
-      <h4>Assemblea costitutiva</h4>
-      <p>Elezione del presidente e del vicepresidente del consiglio d'istituto. Definizione delle commissioni di lavoro.</p>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section id="numeri">
-  <div class="section-label">I numeri</div>
-  <div class="section-title">In sintesi.</div>
-
-  <div class="stats-row">
-    <div class="stat-box">
-      <div class="num">4</div>
-      <div class="lbl">Rappresentanti</div>
-    </div>
-    <div class="stat-box">
-      <div class="num">5</div>
-      <div class="lbl">Assemblee tenute</div>
-    </div>
-    <div class="stat-box">
-      <div class="num">12</div>
-      <div class="lbl">Proposte approvate</div>
-    </div>
-    <div class="stat-box">
-      <div class="num">850+</div>
-      <div class="lbl">Studenti rappresentati</div>
     </div>
   </div>
-</section>
 
-<div class="footer-strip">
-  <p>&copy; 2026 Rappre d'Istituto &middot; Tutti i diritti riservati &middot; <a href="mailto:info@rappre.it">Contattaci</a></p>
+  <!-- ATTIVITÀ -->
+  <div class="pa-section" id="attivita">
+    <span class="pa-section-label">Attività</span>
+    <div class="pa-section-title">Cosa abbiamo fatto</div>
+    <p class="pa-section-desc">
+      Le principali iniziative e progetti realizzati durante l'anno scolastico
+      in risposta alle esigenze degli studenti.
+    </p>
+
+    <div class="pa-att-grid">
+
+      <div class="pa-att-item">
+        <h4>Riforma del regolamento interno</h4>
+        <p>Revisione completa del regolamento scolastico con proposte studentesche su assenze, ritardi e codice di condotta.</p>
+        <div class="data">Febbraio 2026</div>
+      </div>
+
+      <div class="pa-att-item">
+        <h4>Miglioramento spazi comuni</h4>
+        <p>Riqualificazione dell'aula studio e della sala mensa con nuovi arredi, prese USB e aree di relax.</p>
+        <div class="data">Gennaio 2026</div>
+      </div>
+
+      <div class="pa-att-item">
+        <h4>Settimana della legalità</h4>
+        <p>Organizzazione di laboratori, conferenze e attività su tema legalità, rispetto e cittadinanza attiva.</p>
+        <div class="data">Novembre 2025</div>
+      </div>
+
+      <div class="pa-att-item">
+        <h4>Digitale e comunicazione</h4>
+        <p>Lancio dell'account Instagram del rappre e del canale Telegram per aggiornamenti in tempo reale.</p>
+        <div class="data">Ottobre 2025</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ASSEMBLEA -->
+  <div class="pa-section" id="assemblea">
+    <span class="pa-section-label">Assemblea d'Istituto</span>
+    <div class="pa-section-title">Cronologia delle assemblee</div>
+    <p class="pa-section-desc">
+      L'assemblea d'istituto è il momento democratico più importante della rappresentanza.
+      Gli studenti esprimono la propria voce e i rappresentanti rendono conto del proprio operato.
+    </p>
+
+    <div class="pa-timeline">
+
+      <div class="pa-tl-item">
+        <div class="tl-data">12 Giugno 2026</div>
+        <h4>Assemblea finale di anno</h4>
+        <p>Presentazione del bilancio annuale, elezione dei nuovi rappresentanti e votazione delle priorità per il prossimo anno.</p>
+      </div>
+
+      <div class="pa-tl-item">
+        <div class="tl-data">20 Marzo 2026</div>
+        <h4>Assemblea trimestrale - Q3</h4>
+        <p>Discussione sullo stato del regolamento, aggiornamento progetti in corso e raccolta feedback dal corpo studentesco.</p>
+      </div>
+
+      <div class="pa-tl-item">
+        <div class="tl-data">15 Gennaio 2026</div>
+        <h4>Assemblea trimestrale - Q2</h4>
+        <p>Approvazione del progetto di riqualificazione spazi comuni. Presentazione dei dati sulla qualità della didattica.</p>
+      </div>
+
+      <div class="pa-tl-item">
+        <div class="tl-data">18 Novembre 2025</div>
+        <h4>Assemblea di inizio anno</h4>
+        <p>Presentazione del team e del programma di mandato. Prima raccolta di proposte e problemi dalla classe.</p>
+      </div>
+
+      <div class="pa-tl-item">
+        <div class="tl-data">8 Ottobre 2025</div>
+        <h4>Assemblea costitutiva</h4>
+        <p>Elezione del presidente e del vicepresidente del consiglio d'istituto. Definizione delle commissioni di lavoro.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NUMERI -->
+  <div class="pa-section" id="numeri">
+    <span class="pa-section-label">Numeri</span>
+    <div class="pa-section-title">I dati dell'anno</div>
+
+    <div class="pa-numeri">
+      <div class="pa-num-box">
+        <div class="num">4</div>
+        <div class="lbl">Rappresentanti</div>
+      </div>
+      <div class="pa-num-box">
+        <div class="num">5</div>
+        <div class="lbl">Assemblee tenute</div>
+      </div>
+      <div class="pa-num-box">
+        <div class="num">12</div>
+        <div class="lbl">Proposte approvate</div>
+      </div>
+      <div class="pa-num-box">
+        <div class="num">850+</div>
+        <div class="lbl">Studenti rappresentati</div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<footer class="pa-footer">
+  <div class="pa-footer-inner">
+    <p>Rappre d'Istituto &middot; Rappresentanza Studentesca</p>
+    <div class="pa-footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Note legali</a>
+      <a href="#">Accessibilità</a>
+      <a href="mailto:info@rappre.it">Contatti</a>
+    </div>
+  </div>
+  <div class="pa-footer-bottom">
+    <span>&copy; 2026 Istituto Superiore - Tutti i diritti riservati</span>
+    <span>P.IVA 00000000000</span>
+  </div>
+</footer>
 
 </body>
 </html>
