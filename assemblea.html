@@ -8,77 +8,100 @@
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Titillium Web', sans-serif; background: #f5f6f7; color: #17324d; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Titillium Web', sans-serif; background: #f5f6f7; color: #17324d; -webkit-font-smoothing: antialiased; line-height: 1.6; }
 
-    .pa-header-top { background: #17324d; color: #fff; font-size: 0.8rem; padding: 0.4rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .pa-header-top a { color: #fff; text-decoration: none; opacity: 0.8; }
-    .pa-header-top a:hover { opacity: 1; }
+    .pa-top { background: #17324d; color: #fff; font-size: 0.78rem; padding: 0.35rem 0; }
+    .pa-top-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .pa-top-left { display: flex; align-items: center; gap: 0.5rem; }
+    .pa-top-left svg { width: 14px; height: 14px; fill: #fff; opacity: 0.6; }
+    .pa-top a { color: #fff; text-decoration: none; opacity: 0.7; }
 
     .pa-header { background: #fff; border-bottom: 2px solid #0066cc; position: sticky; top: 0; z-index: 100; }
-    .pa-header-inner { max-width: 1200px; margin: 0 auto; padding: 0.8rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
-    .pa-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; color: #17324d; }
-    .pa-logo .logo-icon { width: 42px; height: 42px; background: #0066cc; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1.1rem; }
-    .pa-logo .logo-text { font-weight: 700; font-size: 1.1rem; line-height: 1.2; }
-    .pa-logo .logo-sub { font-size: 0.75rem; font-weight: 400; color: #5b6f82; }
-    .pa-nav { margin-left: auto; display: flex; gap: 0.3rem; }
-    .pa-nav a { text-decoration: none; color: #17324d; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s; }
-    .pa-nav a:hover, .pa-nav a.active { background: #0066cc; color: #fff; }
+    .pa-header-inner { max-width: 1200px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
+    .pa-logo { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; color: #17324d; }
+    .pa-logo-icon { width: 44px; height: 44px; background: #0066cc; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .pa-logo-icon svg { width: 24px; height: 24px; fill: #fff; }
+    .pa-logo-text strong { font-weight: 700; font-size: 1.05rem; display: block; line-height: 1.2; }
+    .pa-logo-text small { font-size: 0.72rem; font-weight: 400; color: #5b6f82; display: block; }
+    .pa-nav { margin-left: auto; display: flex; gap: 0.2rem; }
+    .pa-nav a { text-decoration: none; color: #17324d; font-size: 0.82rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.2s; }
+    .pa-nav a:hover { background: #e8f4fd; color: #0066cc; }
+    .pa-nav a.active { background: #0066cc; color: #fff; }
 
-    .pa-hero-sub { background: linear-gradient(135deg, #17324d 0%, #0066cc 100%); color: #fff; padding: 4rem 2rem; text-align: center; }
-    .pa-hero-sub h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
-    .pa-hero-sub p { margin-top: 0.8rem; font-size: 1.1rem; opacity: 0.85; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    .pa-hero-sub { background: #17324d; color: #fff; padding: 4rem 2rem 3rem; position: relative; }
+    .pa-hero-sub::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, #f5f6f7); }
+    .pa-hero-sub h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 700; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .pa-hero-sub p { margin-top: 0.8rem; font-size: 1.05rem; opacity: 0.75; max-width: 500px; line-height: 1.6; position: relative; z-index: 1; }
 
-    .pa-content { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
-    .pa-breadcrumb { font-size: 0.8rem; color: #5b6f82; margin-bottom: 2rem; }
+    .pa-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    .pa-breadcrumb { font-size: 0.78rem; color: #5b6f82; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.4rem; }
     .pa-breadcrumb a { color: #0066cc; text-decoration: none; }
+    .pa-breadcrumb svg { width: 12px; height: 12px; fill: #5b6f82; }
 
-    .pa-section { margin-bottom: 3.5rem; }
-    .pa-section-label { display: inline-block; background: #0066cc; color: #fff; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.3rem 0.8rem; border-radius: 3px; margin-bottom: 0.8rem; }
-    .pa-section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: #17324d; margin-bottom: 0.8rem; }
-    .pa-section-desc { font-size: 1.05rem; color: #5b6f82; max-width: 700px; line-height: 1.65; }
+    .pa-section { margin-bottom: 3rem; }
+    .pa-section-label { display: inline-flex; align-items: center; gap: 0.4rem; background: #0066cc; color: #fff; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 0.9rem; border-radius: 3px; margin-bottom: 1rem; }
+    .pa-section-label svg { width: 12px; height: 12px; fill: #fff; }
+    .pa-section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; color: #17324d; line-height: 1.2; margin-bottom: 0.8rem; }
+    .pa-section-desc { font-size: 1.05rem; color: #5b6f82; max-width: 640px; line-height: 1.7; }
 
-    .pa-timeline { margin-top: 2.5rem; position: relative; padding-left: 2.5rem; }
-    .pa-timeline::before { content: ''; position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: #d9dadb; }
+    .pa-timeline { margin-top: 2.5rem; position: relative; padding-left: 3rem; }
+    .pa-timeline::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #0066cc, #d9dadb); }
 
-    .pa-tl-item { position: relative; padding-bottom: 2.8rem; }
-    .pa-tl-item::before { content: ''; position: absolute; left: -2.5rem; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #0066cc; border: 2px solid #fff; box-shadow: 0 0 0 2px #0066cc; }
-    .pa-tl-item .tl-data { font-size: 0.78rem; color: #8e8e93; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
-    .pa-tl-item h4 { font-size: 1.05rem; font-weight: 700; color: #17324d; margin-top: 0.3rem; }
-    .pa-tl-item p { font-size: 0.9rem; color: #5b6f82; margin-top: 0.3rem; line-height: 1.55; }
+    .pa-tl-item { position: relative; padding-bottom: 2.5rem; }
+    .pa-tl-item::before { content: ''; position: absolute; left: -3rem; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: #0066cc; border: 3px solid #fff; box-shadow: 0 0 0 2px #0066cc; z-index: 1; }
+    .pa-tl-item:first-child::before { background: #00875a; box-shadow: 0 0 0 2px #00875a; }
 
-    .pa-tl-card { background: #fff; border: 1px solid #d9dadb; border-radius: 4px; padding: 1.2rem 1.5rem; margin-top: 0.6rem; }
-    .pa-tl-card .partecipanti { font-size: 0.82rem; color: #0066cc; font-weight: 600; margin-top: 0.5rem; }
-    .pa-tl-card .risultati { font-size: 0.85rem; color: #5b6f82; margin-top: 0.3rem; line-height: 1.5; }
+    .pa-tl-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.3rem; }
+    .pa-tl-data { font-size: 0.75rem; color: #8e8e93; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.3rem; }
+    .pa-tl-data svg { width: 12px; height: 12px; fill: #8e8e93; }
+    .pa-tl-item h4 { font-size: 1.1rem; font-weight: 700; color: #17324d; }
+    .pa-tl-item > p { font-size: 0.9rem; color: #5b6f82; margin-top: 0.3rem; line-height: 1.6; }
 
-    .pa-footer { background: #17324d; color: #fff; padding: 2.5rem 2rem; }
+    .pa-tl-card { background: #fff; border: 1px solid #d9dadb; border-radius: 8px; padding: 1.2rem 1.5rem; margin-top: 0.8rem; }
+    .pa-tl-card-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.4rem; font-size: 0.85rem; }
+    .pa-tl-card-row svg { width: 16px; height: 16px; fill: #0066cc; margin-top: 2px; flex-shrink: 0; }
+    .pa-tl-card-row .lbl { font-weight: 600; color: #0066cc; min-width: 110px; }
+    .pa-tl-card-row span:not(.lbl) { color: #5b6f82; }
+
+    .pa-footer { background: #17324d; color: #fff; padding: 2.5rem 2rem; margin-top: 2rem; }
     .pa-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .pa-footer p { font-size: 0.82rem; opacity: 0.7; }
+    .pa-footer-brand { display: flex; align-items: center; gap: 0.8rem; }
+    .pa-footer-brand svg { width: 20px; height: 20px; fill: #fff; opacity: 0.5; }
+    .pa-footer p { font-size: 0.82rem; opacity: 0.6; }
     .pa-footer-links { display: flex; gap: 1.5rem; }
-    .pa-footer-links a { color: #fff; font-size: 0.82rem; text-decoration: none; opacity: 0.7; }
+    .pa-footer-links a { color: #fff; font-size: 0.82rem; text-decoration: none; opacity: 0.6; }
     .pa-footer-links a:hover { opacity: 1; }
-    .pa-footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); max-width: 1200px; margin: 1.5rem auto 0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.75rem; opacity: 0.5; }
+    .pa-footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); max-width: 1200px; margin: 1.5rem auto 0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.72rem; opacity: 0.4; }
 
     @media (max-width: 768px) {
       .pa-header-inner { flex-wrap: wrap; }
       .pa-nav { margin-left: 0; }
+      .pa-timeline { padding-left: 2.5rem; }
       .pa-footer-inner { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<div class="pa-header-top">
-  <span>ITE G. Salvemini &middot; Anno Scolastico 2026/2027</span>
-  <a href="#">Accedi all'area riservata</a>
+<div class="pa-top">
+  <div class="pa-top-inner">
+    <div class="pa-top-left">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      <span>ITE G. Salvemini &middot; Anno Scolastico 2026/2027</span>
+    </div>
+    <a href="#">Accedi all'area riservata</a>
+  </div>
 </div>
 
 <div class="pa-header">
   <div class="pa-header-inner">
     <a class="pa-logo" href="index.html">
-      <div class="logo-icon">&#127891;</div>
-      <div>
-        <div class="logo-text">Rappre d'Istituto</div>
-        <div class="logo-sub">Rappresentanti degli Studenti</div>
+      <div class="pa-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+      </div>
+      <div class="pa-logo-text">
+        <strong>Rappre d'Istituto</strong>
+        <small>Rappresentanti degli Studenti</small>
       </div>
     </a>
     <div class="pa-nav">
@@ -99,77 +122,121 @@
 <div class="pa-content">
 
   <div class="pa-breadcrumb">
-    <a href="index.html">Home</a> &rsaquo; Assemblea d'Istituto
+    <a href="index.html">Home</a>
+    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    <span>Assemblea d'Istituto</span>
   </div>
 
   <div class="pa-section">
-    <span class="pa-section-label">Cronologia</span>
+    <div class="pa-section-label">
+      <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+      Cronologia
+    </div>
     <div class="pa-section-title">Le assemblee dell'anno</div>
-    <p class="pa-section-desc">
-      Ogni trimestre si tiene un'assemblea d'istituto. Il presidente del consiglio
-      illustra i lavori, si raccolgono le proposte e si votano le priorità.
-    </p>
+    <p class="pa-section-desc">Ogni trimestre si tiene un'assemblea d'istituto. Il presidente illustra i lavori, si raccolgono proposte e si votano le priorità.</p>
   </div>
 
   <div class="pa-timeline">
 
     <div class="pa-tl-item">
-      <div class="tl-data">12 Giugno 2026</div>
-      <h4>Assemblea finale di anno</h4>
+      <div class="pa-tl-header">
+        <h4>Assemblea finale di anno</h4>
+      </div>
+      <div class="pa-tl-data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg> 12 Giugno 2026</div>
       <p>Presentazione del bilancio annuale e della relazione finale del consiglio d'istituto.</p>
       <div class="pa-tl-card">
-        <div class="partecipanti">Partecipanti: 320 studenti</div>
-        <div class="risultati">Risultati: approvazione del bilancio, elezione nuovi rappresentanti, votazione priorità 2026/27.</div>
+        <div class="pa-tl-card-row">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <span class="lbl">Partecipanti</span> <span>320 studenti</span>
+        </div>
+        <div class="pa-tl-card-row">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span class="lbl">Risultati</span> <span>Approvazione bilancio, elezione nuovi rappresentanti, votazione priorità 2027/28.</span>
+        </div>
       </div>
     </div>
 
     <div class="pa-tl-item">
-      <div class="tl-data">20 Marzo 2026</div>
-      <h4>Assemblea trimestrale - Q3</h4>
+      <div class="pa-tl-header">
+        <h4>Assemblea trimestrale - Q3</h4>
+      </div>
+      <div class="pa-tl-data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg> 20 Marzo 2026</div>
       <p>Aggiornamento sullo stato dei progetti e raccolta feedback dal corpo studentesco.</p>
       <div class="pa-tl-card">
-        <div class="partecipanti">Partecipanti: 280 studenti</div>
-        <div class="risultati">Risultati: approvazione modifica regolamento su ritardi, nuove proposte su spazi studio.</div>
+        <div class="pa-tl-card-row">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <span class="lbl">Partecipanti</span> <span>280 studenti</span>
+        </div>
+        <div class="pa-tl-card-row">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span class="lbl">Risultati</span> <span>Approvazione modifica regolamento su ritardi, nuove proposte su spazi studio.</span>
+        </div>
       </div>
     </div>
 
     <div class="pa-tl-item">
-      <div class="tl-data">15 Gennaio 2026</div>
-      <h4>Assemblea trimestrale - Q2</h4>
+      <div class="pa-tl-header">
+        <h4>Assemblea trimestrale - Q2</h4>
+      </div>
+      <div class="pa-tl-data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg> 15 Gennaio 2026</div>
       <p>Presentazione dei dati sulla qualità della didattica e votazione del progetto spazi comuni.</p>
       <div class="pa-tl-card">
-        <div class="partecipanti">Partecipanti: 260 studenti</div>
-        <div class="risultati">Risultati: approvazione unanime del progetto riqualificazione aula studio e mensa.</div>
+        <div class="pa-tl-card-row">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <span class="lbl">Partecipanti</span> <span>260 studenti</span>
+        </div>
+        <div class="pa-tl-card-row">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span class="lbl">Risultati</span> <span>Approvazione unanime del progetto riqualificazione aula studio e mensa.</span>
+        </div>
       </div>
     </div>
 
     <div class="pa-tl-item">
-      <div class="tl-data">18 Novembre 2025</div>
-      <h4>Assemblea di inizio anno</h4>
+      <div class="pa-tl-header">
+        <h4>Assemblea di inizio anno</h4>
+      </div>
+      <div class="pa-tl-data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg> 18 Novembre 2025</div>
       <p>Presentazione del team, del programma di mandato e prima raccolta di proposte.</p>
       <div class="pa-tl-card">
-        <div class="partecipanti">Partecipanti: 290 studenti</div>
-        <div class="risultati">Risultati: 15 proposte raccolte, 5 priorità definite per il primo trimestre.</div>
+        <div class="pa-tl-card-row">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <span class="lbl">Partecipanti</span> <span>290 studenti</span>
+        </div>
+        <div class="pa-tl-card-row">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span class="lbl">Risultati</span> <span>15 proposte raccolte, 5 priorità definite per il primo trimestre.</span>
+        </div>
       </div>
     </div>
 
     <div class="pa-tl-item">
-      <div class="tl-data">8 Ottobre 2025</div>
-      <h4>Assemblea costitutiva</h4>
+      <div class="pa-tl-header">
+        <h4>Assemblea costitutiva</h4>
+      </div>
+      <div class="pa-tl-data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg> 8 Ottobre 2025</div>
       <p>Elezione del presidente e del vicepresidente del consiglio d'istituto.</p>
       <div class="pa-tl-card">
-        <div class="partecipanti">Partecipanti: 350 studenti (record)</div>
-        <div class="risultati">Risultati: Elena Marchetti eletta presidente, Alessandro Ricci vicepresidente. Definite 4 commissioni.</div>
+        <div class="pa-tl-card-row">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          <span class="lbl">Partecipanti</span> <span>350 studenti (record)</span>
+        </div>
+        <div class="pa-tl-card-row">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          <span class="lbl">Risultati</span> <span>Elena Marchetti eletta presidente, Alessandro Ricci vicepresidente. Definite 4 commissioni.</span>
+        </div>
       </div>
     </div>
 
   </div>
-
 </div>
 
 <footer class="pa-footer">
   <div class="pa-footer-inner">
-    <p>Rappre d'Istituto &middot; Rappresentanti degli Studenti</p>
+    <div class="pa-footer-brand">
+      <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+      <p>Rappre d'Istituto &middot; Rappresentanti degli Studenti</p>
+    </div>
     <div class="pa-footer-links">
       <a href="#">Privacy Policy</a>
       <a href="#">Note legali</a>
@@ -178,7 +245,7 @@
     </div>
   </div>
   <div class="pa-footer-bottom">
-    <span>&copy; 2026 Istituto Superiore - Tutti i diritti riservati</span>
+    <span>&copy; 2027 ITE G. Salvemini - Tutti i diritti riservati</span>
     <span>P.IVA 00000000000</span>
   </div>
 </footer>

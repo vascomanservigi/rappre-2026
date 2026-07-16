@@ -8,50 +8,65 @@
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Titillium Web', sans-serif; background: #f5f6f7; color: #17324d; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Titillium Web', sans-serif; background: #f5f6f7; color: #17324d; -webkit-font-smoothing: antialiased; line-height: 1.6; }
 
-    .pa-header-top { background: #17324d; color: #fff; font-size: 0.8rem; padding: 0.4rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-    .pa-header-top a { color: #fff; text-decoration: none; opacity: 0.8; }
-    .pa-header-top a:hover { opacity: 1; }
+    .pa-top { background: #17324d; color: #fff; font-size: 0.78rem; padding: 0.35rem 0; }
+    .pa-top-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .pa-top-left { display: flex; align-items: center; gap: 0.5rem; }
+    .pa-top-left svg { width: 14px; height: 14px; fill: #fff; opacity: 0.6; }
+    .pa-top a { color: #fff; text-decoration: none; opacity: 0.7; }
 
     .pa-header { background: #fff; border-bottom: 2px solid #0066cc; position: sticky; top: 0; z-index: 100; }
-    .pa-header-inner { max-width: 1200px; margin: 0 auto; padding: 0.8rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
-    .pa-logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; color: #17324d; }
-    .pa-logo .logo-icon { width: 42px; height: 42px; background: #0066cc; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1.1rem; }
-    .pa-logo .logo-text { font-weight: 700; font-size: 1.1rem; line-height: 1.2; }
-    .pa-logo .logo-sub { font-size: 0.75rem; font-weight: 400; color: #5b6f82; }
-    .pa-nav { margin-left: auto; display: flex; gap: 0.3rem; }
-    .pa-nav a { text-decoration: none; color: #17324d; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 4px; transition: background 0.2s; }
-    .pa-nav a:hover, .pa-nav a.active { background: #0066cc; color: #fff; }
+    .pa-header-inner { max-width: 1200px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; align-items: center; gap: 1.5rem; }
+    .pa-logo { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; color: #17324d; }
+    .pa-logo-icon { width: 44px; height: 44px; background: #0066cc; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .pa-logo-icon svg { width: 24px; height: 24px; fill: #fff; }
+    .pa-logo-text strong { font-weight: 700; font-size: 1.05rem; display: block; line-height: 1.2; }
+    .pa-logo-text small { font-size: 0.72rem; font-weight: 400; color: #5b6f82; display: block; }
+    .pa-nav { margin-left: auto; display: flex; gap: 0.2rem; }
+    .pa-nav a { text-decoration: none; color: #17324d; font-size: 0.82rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.2s; }
+    .pa-nav a:hover { background: #e8f4fd; color: #0066cc; }
+    .pa-nav a.active { background: #0066cc; color: #fff; }
 
-    .pa-hero-sub { background: linear-gradient(135deg, #17324d 0%, #0066cc 100%); color: #fff; padding: 4rem 2rem; text-align: center; }
-    .pa-hero-sub h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
-    .pa-hero-sub p { margin-top: 0.8rem; font-size: 1.1rem; opacity: 0.85; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    .pa-hero-sub { background: #17324d; color: #fff; padding: 4rem 2rem 3rem; position: relative; }
+    .pa-hero-sub::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, #f5f6f7); }
+    .pa-hero-sub h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 700; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .pa-hero-sub p { margin-top: 0.8rem; font-size: 1.05rem; opacity: 0.75; max-width: 500px; line-height: 1.6; position: relative; z-index: 1; }
 
-    .pa-content { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
-    .pa-breadcrumb { font-size: 0.8rem; color: #5b6f82; margin-bottom: 2rem; }
+    .pa-content { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    .pa-breadcrumb { font-size: 0.78rem; color: #5b6f82; margin-bottom: 2.5rem; display: flex; align-items: center; gap: 0.4rem; }
     .pa-breadcrumb a { color: #0066cc; text-decoration: none; }
+    .pa-breadcrumb svg { width: 12px; height: 12px; fill: #5b6f82; }
 
-    .pa-section { margin-bottom: 3.5rem; }
-    .pa-section-label { display: inline-block; background: #0066cc; color: #fff; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.3rem 0.8rem; border-radius: 3px; margin-bottom: 0.8rem; }
-    .pa-section-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: #17324d; margin-bottom: 0.8rem; }
-    .pa-section-desc { font-size: 1.05rem; color: #5b6f82; max-width: 700px; line-height: 1.65; }
+    .pa-section { margin-bottom: 3rem; }
+    .pa-section-label { display: inline-flex; align-items: center; gap: 0.4rem; background: #0066cc; color: #fff; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 0.9rem; border-radius: 3px; margin-bottom: 1rem; }
+    .pa-section-label svg { width: 12px; height: 12px; fill: #fff; }
+    .pa-section-title { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; color: #17324d; line-height: 1.2; margin-bottom: 0.8rem; }
+    .pa-section-desc { font-size: 1.05rem; color: #5b6f82; max-width: 640px; line-height: 1.7; }
 
-    .pa-att-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    .pa-att-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
 
-    .pa-att-item { background: #fff; border: 1px solid #d9dadb; border-left: 4px solid #0066cc; border-radius: 4px; padding: 1.5rem 1.8rem; transition: box-shadow 0.2s; }
-    .pa-att-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-    .pa-att-item h4 { font-size: 1.05rem; font-weight: 700; color: #17324d; }
-    .pa-att-item p { font-size: 0.9rem; color: #5b6f82; margin-top: 0.5rem; line-height: 1.55; }
-    .pa-att-item .data { margin-top: 0.8rem; font-size: 0.78rem; color: #8e8e93; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+    .pa-att-item { background: #fff; border: 1px solid #d9dadb; border-radius: 8px; padding: 2rem; transition: box-shadow 0.25s, transform 0.25s; position: relative; overflow: hidden; }
+    .pa-att-item::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #0066cc; }
+    .pa-att-item:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px); }
 
-    .pa-footer { background: #17324d; color: #fff; padding: 2.5rem 2rem; }
+    .pa-att-icon { width: 44px; height: 44px; border-radius: 10px; background: #e8f4fd; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+    .pa-att-icon svg { width: 20px; height: 20px; fill: #0066cc; }
+
+    .pa-att-item h4 { font-size: 1.1rem; font-weight: 700; color: #17324d; margin-bottom: 0.5rem; }
+    .pa-att-item p { font-size: 0.9rem; color: #5b6f82; line-height: 1.6; }
+    .pa-att-item .data { margin-top: 1rem; font-size: 0.75rem; color: #8e8e93; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.4rem; }
+    .pa-att-item .data svg { width: 12px; height: 12px; fill: #8e8e93; }
+
+    .pa-footer { background: #17324d; color: #fff; padding: 2.5rem 2rem; margin-top: 2rem; }
     .pa-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .pa-footer p { font-size: 0.82rem; opacity: 0.7; }
+    .pa-footer-brand { display: flex; align-items: center; gap: 0.8rem; }
+    .pa-footer-brand svg { width: 20px; height: 20px; fill: #fff; opacity: 0.5; }
+    .pa-footer p { font-size: 0.82rem; opacity: 0.6; }
     .pa-footer-links { display: flex; gap: 1.5rem; }
-    .pa-footer-links a { color: #fff; font-size: 0.82rem; text-decoration: none; opacity: 0.7; }
+    .pa-footer-links a { color: #fff; font-size: 0.82rem; text-decoration: none; opacity: 0.6; }
     .pa-footer-links a:hover { opacity: 1; }
-    .pa-footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); max-width: 1200px; margin: 1.5rem auto 0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.75rem; opacity: 0.5; }
+    .pa-footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); max-width: 1200px; margin: 1.5rem auto 0; padding-top: 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.72rem; opacity: 0.4; }
 
     @media (max-width: 768px) {
       .pa-att-grid { grid-template-columns: 1fr; }
@@ -63,18 +78,25 @@
 </head>
 <body>
 
-<div class="pa-header-top">
-  <span>ITE G. Salvemini &middot; Anno Scolastico 2026/2027</span>
-  <a href="#">Accedi all'area riservata</a>
+<div class="pa-top">
+  <div class="pa-top-inner">
+    <div class="pa-top-left">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      <span>ITE G. Salvemini &middot; Anno Scolastico 2026/2027</span>
+    </div>
+    <a href="#">Accedi all'area riservata</a>
+  </div>
 </div>
 
 <div class="pa-header">
   <div class="pa-header-inner">
     <a class="pa-logo" href="index.html">
-      <div class="logo-icon">&#127891;</div>
-      <div>
-        <div class="logo-text">Rappre d'Istituto</div>
-        <div class="logo-sub">Rappresentanti degli Studenti</div>
+      <div class="pa-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+      </div>
+      <div class="pa-logo-text">
+        <strong>Rappre d'Istituto</strong>
+        <small>Rappresentanti degli Studenti</small>
       </div>
     </a>
     <div class="pa-nav">
@@ -95,63 +117,85 @@
 <div class="pa-content">
 
   <div class="pa-breadcrumb">
-    <a href="index.html">Home</a> &rsaquo; Attività
+    <a href="index.html">Home</a>
+    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    <span>Attività</span>
   </div>
 
   <div class="pa-section">
-    <span class="pa-section-label">Progetti</span>
+    <div class="pa-section-label">
+      <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+      Progetti
+    </div>
     <div class="pa-section-title">Cosa abbiamo fatto</div>
-    <p class="pa-section-desc">
-      Le principali iniziative portate avanti dal team di rappresentanti
-      in risposta alle esigenze degli studenti.
-    </p>
+    <p class="pa-section-desc">Le principali iniziative portate avanti dal team di rappresentanti in risposta alle esigenze degli studenti.</p>
   </div>
 
   <div class="pa-att-grid">
 
     <div class="pa-att-item">
+      <div class="pa-att-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+      </div>
       <h4>Riforma del regolamento interno</h4>
-      <p>Revisione completa del regolamento scolastico con proposte studentesche su assenze, ritardi e codice di condotta. Costruito un comitato misto studenti-insegnanti.</p>
-      <div class="data">Febbraio 2026</div>
+      <p>Revisione completa del regolamento scolastico con proposte studentesche su assenze, ritardi e codice di condotta. Comitato misto studenti-insegnanti.</p>
+      <div class="data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg> Febbraio 2026</div>
     </div>
 
     <div class="pa-att-item">
+      <div class="pa-att-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 11V3H7v4H3v14h8v-4h2v4h8V11h-4zM7 19H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm4 4H9v-2h2v2zm0-4H9V9h2v2zm0-4H9V5h2v2zm4 8h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm4 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
+      </div>
       <h4>Miglioramento spazi comuni</h4>
       <p>Riqualificazione dell'aula studio e della sala mensa con nuovi arredi, prese USB per ricarica dispositivi e aree di relax dedicate.</p>
-      <div class="data">Gennaio 2026</div>
+      <div class="data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg> Gennaio 2026</div>
     </div>
 
     <div class="pa-att-item">
+      <div class="pa-att-icon">
+        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      </div>
       <h4>Settimana della legalità</h4>
       <p>Organizzazione di laboratori, conferenze e attività su tema legalità, rispetto e cittadinanza attiva. Ospiti esterni e workshop interattivi.</p>
-      <div class="data">Novembre 2025</div>
+      <div class="data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg> Novembre 2025</div>
     </div>
 
     <div class="pa-att-item">
+      <div class="pa-att-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+      </div>
       <h4>Digitale e comunicazione</h4>
       <p>Lancio dell'account Instagram ufficiale e del canale Telegram per aggiornamenti in tempo reale. Oltre 400 follower in due mesi.</p>
-      <div class="data">Ottobre 2025</div>
+      <div class="data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg> Ottobre 2025</div>
     </div>
 
     <div class="pa-att-item">
+      <div class="pa-att-icon">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+      </div>
       <h4>Bollino blu per la mensa</h4>
       <p>Proposta e approvazione del sistema a bollini per la mensa scolastica, riducendo le file e migliorando l'organizzazione dei pasti.</p>
-      <div class="data">Dicembre 2025</div>
+      <div class="data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg> Dicembre 2025</div>
     </div>
 
     <div class="pa-att-item">
+      <div class="pa-att-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+      </div>
       <h4>Concerto di fine anno</h4>
       <p>Organizzazione del concerto di fine anno con le band studentesche. Evento aperto a famiglie e comunità locale, oltre 300 partecipanti.</p>
-      <div class="data">Giugno 2026</div>
+      <div class="data"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg> Giugno 2026</div>
     </div>
 
   </div>
-
 </div>
 
 <footer class="pa-footer">
   <div class="pa-footer-inner">
-    <p>Rappre d'Istituto &middot; Rappresentanti degli Studenti</p>
+    <div class="pa-footer-brand">
+      <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+      <p>Rappre d'Istituto &middot; Rappresentanti degli Studenti</p>
+    </div>
     <div class="pa-footer-links">
       <a href="#">Privacy Policy</a>
       <a href="#">Note legali</a>
@@ -160,7 +204,7 @@
     </div>
   </div>
   <div class="pa-footer-bottom">
-    <span>&copy; 2026 Istituto Superiore - Tutti i diritti riservati</span>
+    <span>&copy; 2027 ITE G. Salvemini - Tutti i diritti riservati</span>
     <span>P.IVA 00000000000</span>
   </div>
 </footer>
