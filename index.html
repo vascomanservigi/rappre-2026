@@ -7,176 +7,132 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bs-primary: #16395e;
-      --bs-primary-dark: #0e253d;
-      --bs-secondary: #5d7083;
-      --bs-dark: #17334f;
-      --bs-light: #e9e6f2;
-      --bs-success: #008055;
-      --bs-body-color: #1a1a1a;
-      --bs-border-color: #c5c7c9;
-      --slim-bar: #0f2a48;
-      --center-bar: #16395e;
-      --footer-main: #173d66;
-      --footer-bottom: #16395e;
-      --card-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
-      --card-shadow-hover: 0 2px 20px 0 rgba(0,0,0,0.1);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Titillium Web', sans-serif; font-weight: 300; background: #fff; color: var(--bs-body-color); font-size: 16px; line-height: 1.5; }
-    h1,h2,h3,h4,h5,h6 { font-family: 'Poppins', sans-serif; font-weight: 700; }
-    a { color: var(--bs-primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    :root{--primary:#16395e;--primary-dark:#0e253d;--secondary:#5d7083;--dark:#17334f;--light:#e9e6f2;--body:#1a1a1a;--success:#008055;--slim:#0f2a48;--nav:#16395e;--footer:#173d66;--shadow:0 1px 3px 0 #d4d4d5,0 0 0 1px #d4d4d5;--shadow-h:0 2px 20px 0 rgba(0,0,0,.1)}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Titillium Web',sans-serif;font-weight:300;background:#fff;color:var(--body);font-size:16px;line-height:1.5}
+    h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:700}
+    a{color:var(--primary);text-decoration:none}a:hover{text-decoration:underline}
 
-    /* ── SLIM BAR ── */
-    .it-header-slim { background: var(--slim-bar); padding: 6px 18px; display: flex; justify-content: space-between; align-items: center; }
-    .it-header-slim-left { display: flex; align-items: center; gap: 6px; }
-    .it-header-slim-left svg { width: 14px; height: 14px; fill: #fff; opacity: .6; }
-    .it-header-slim span { color: #fff; font-size: .778em; letter-spacing: .5px; }
-    .it-header-slim a { color: #fff; font-size: .778em; text-decoration: none; opacity: .7; }
-    .it-header-slim a:hover { opacity: 1; text-decoration: none; }
+    /* SLIM */
+    .slim{background:var(--slim);padding:6px 24px;display:flex;justify-content:space-between;align-items:center}
+    .slim-left{display:flex;align-items:center;gap:6px}
+    .slim-left svg{width:14px;height:14px;fill:#fff;opacity:.6}
+    .slim span,.slim a{color:#fff;font-size:.778em;text-decoration:none;letter-spacing:.5px}.slim a{opacity:.7}.slim a:hover{opacity:1;text-decoration:none}
 
-    /* ── CENTER BAR ── */
-    .it-header-center { background: var(--center-bar); height: 80px; display: flex; align-items: center; padding: 0 18px; }
-    .it-header-center .it-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
-    .it-header-center .it-brand-logo { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; }
-    .it-header-center .it-brand-logo svg { width: 32px; height: 32px; fill: #fff; }
-    .it-header-center .it-brand-title { font-family: 'Poppins', sans-serif; font-size: 1.25rem; font-weight: 600; color: #fff; line-height: 1.2; }
-    .it-header-center .it-brand-subtitle { font-size: .75rem; font-weight: 400; color: rgba(255,255,255,.65); display: block; }
-    .it-header-center .it-right-zone { margin-left: auto; display: flex; align-items: center; gap: 12px; }
-    .it-header-center .it-right-zone a { color: #fff; font-size: .8rem; opacity: .7; text-decoration: none; }
-    .it-header-center .it-right-zone a:hover { opacity: 1; }
-    .it-header-center .search-btn { background: none; border: none; color: #fff; cursor: pointer; opacity: .7; padding: 6px; }
-    .it-header-center .search-btn:hover { opacity: 1; }
-    .it-header-center .search-btn svg { width: 20px; height: 20px; fill: #fff; }
+    /* HEADER CENTER */
+    .hdr{background:var(--nav);height:80px;display:flex;align-items:center;padding:0 24px}
+    .hdr .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+    .hdr .brand svg{width:32px;height:32px;fill:#fff}
+    .hdr .brand-name{font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:600;color:#fff;line-height:1.2}
+    .hdr .brand-sub{font-size:.75rem;color:rgba(255,255,255,.6);display:block}
+    .hdr .hdr-right{margin-left:auto;display:flex;align-items:center;gap:16px}
+    .hdr .hdr-right a{color:#fff;font-size:.833rem;opacity:.7;text-decoration:none}.hdr .hdr-right a:hover{opacity:1}
+    .hdr .search-btn{background:none;border:none;cursor:pointer;opacity:.7;padding:6px}.hdr .search-btn:hover{opacity:1}
+    .hdr .search-btn svg{width:20px;height:20px;fill:#fff}
 
-    /* ── NAVBAR ── */
-    .it-header-navbar { background: var(--center-bar); border-top: 1px solid rgba(255,255,255,.1); }
-    .it-header-navbar-inner { max-width: 1127px; margin: 0 auto; padding: 0 18px; display: flex; gap: 0; }
-    .it-header-navbar a { color: #fff; text-decoration: none; padding: 14px 16px; font-size: .889rem; font-weight: 400; transition: background .15s; }
-    .it-header-navbar a:hover { background: rgba(255,255,255,.08); text-decoration: none; }
-    .it-header-navbar a.active { font-weight: 600; background: rgba(255,255,255,.1); }
+    /* NAVBAR */
+    .nav{background:var(--nav);border-top:1px solid rgba(255,255,255,.12)}
+    .nav-inner{display:flex;justify-content:center}
+    .nav a{color:rgba(255,255,255,.8);text-decoration:none;padding:14px 24px;font-size:.889rem;font-weight:400;transition:all .15s;border-bottom:3px solid transparent}
+    .nav a:hover{color:#fff;background:rgba(255,255,255,.06);text-decoration:none}
+    .nav a.active{color:#fff;font-weight:600;border-bottom-color:#fff}
 
-    /* ── HERO ── */
-    .it-hero { background: var(--bs-primary); color: #fff; padding: 56px 18px; }
-    .it-hero-inner { max-width: 1127px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-    .it-hero h1 { font-size: 2.222rem; line-height: 1.15; margin-bottom: 16px; }
-    .it-hero p { font-size: 1.1rem; opacity: .8; line-height: 1.7; max-width: 520px; }
-    .it-hero .etichetta { font-size: .778em; text-transform: uppercase; letter-spacing: .9px; color: rgba(255,255,255,.6); margin-bottom: 12px; display: block; }
+    /* HERO */
+    .hero{background:linear-gradient(135deg,var(--primary) 0%,var(--dark) 100%);color:#fff;padding:72px 24px 80px}
+    .hero-inner{max-width:1127px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .hero .tag{font-size:.778em;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.5);margin-bottom:16px;display:block}
+    .hero h1{font-size:2.5rem;line-height:1.12;margin-bottom:16px}
+    .hero h1 em{font-style:normal;color:#7cb9e8}
+    .hero>p,.hero-desc{font-size:1.1rem;opacity:.75;line-height:1.7;max-width:520px}
 
-    .it-hero-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 4px; padding: 32px; }
-    .it-hero-card-item { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
-    .it-hero-card-item:last-child { border: none; }
-    .it-hero-card-item .icon-circle { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .it-hero-card-item .icon-circle svg { width: 20px; height: 20px; fill: #fff; }
-    .it-hero-card-item strong { color: #fff; font-size: .95rem; display: block; font-weight: 600; }
-    .it-hero-card-item span { color: rgba(255,255,255,.5); font-size: .8rem; }
+    .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:28px 32px}
+    .hc-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+    .hc-item:last-child{border:none}
+    .hc-icon{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .hc-icon svg{width:22px;height:22px;fill:#7cb9e8}
+    .hc-item strong{color:#fff;font-size:.95rem;display:block;font-weight:600}
+    .hc-item span{color:rgba(255,255,255,.45);font-size:.8rem}
 
-    /* ── CONTAINER ── */
-    .it-container { max-width: 1127px; margin: 0 auto; padding: 0 18px; }
-    .it-section { padding: 48px 0; }
-    .it-section.bg-light { background: #f5f5f5; }
-    .it-section.full-width { max-width: 100%; }
+    /* CONTAINER */
+    .container{max-width:1127px;margin:0 auto;padding:0 24px}
+    .section{padding:64px 0}
+    .section-sm{padding:48px 0}
+    .bg-light{background:#f5f5f5}
 
-    /* ── BREADCRUMB ── */
-    .it-breadcrumb { padding: 16px 0; font-size: .8rem; color: var(--bs-secondary); display: flex; align-items: center; gap: 6px; }
-    .it-breadcrumb a { color: var(--bs-primary); }
-    .it-breadcrumb svg { width: 12px; height: 12px; fill: var(--bs-secondary); }
+    /* CATEGORY */
+    .cat{font-size:.778em;text-transform:uppercase;letter-spacing:.9px;font-weight:700;color:var(--primary);margin-bottom:12px;display:block}
+    .sec-title{font-size:1.75rem;margin-bottom:8px}
+    .sec-desc{font-size:1rem;color:var(--secondary);max-width:640px;line-height:1.7}
 
-    /* ── SECTION HEADER ── */
-    .it-section-header { margin-bottom: 32px; }
-    .category-top { font-size: .778em; text-transform: uppercase; letter-spacing: .9px; color: var(--bs-body-color); margin-bottom: 16px; }
-    .category-top .category { font-weight: 700; color: var(--bs-primary); }
-    .it-section-title { font-size: 1.5rem; margin-bottom: 8px; }
-    .it-section-desc { font-size: 1rem; color: var(--bs-secondary); max-width: 640px; line-height: 1.7; }
+    /* STAT CARDS */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .stat{background:#fff;border-radius:4px;box-shadow:var(--shadow);padding:32px 24px;text-align:center;transition:all .2s}
+    .stat:hover{box-shadow:var(--shadow-h);transform:translateY(-3px)}
+    .stat-icon{width:56px;height:56px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+    .stat-icon svg{width:24px;height:24px;fill:var(--primary)}
+    .stat .num{font-family:'Poppins',sans-serif;font-size:2.25rem;font-weight:700;color:var(--primary);line-height:1}
+    .stat .lbl{font-size:.875rem;color:var(--secondary);margin-top:6px}
 
-    /* ── CARDS ── */
-    .it-card-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .it-card { background: #fff; border-radius: 4px; box-shadow: var(--card-shadow); transition: box-shadow .15s, transform .15s; overflow: hidden; }
-    .it-card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-2px); }
-    .it-card-body { padding: 24px; }
-    .it-card-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--bs-light); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-    .it-card-icon svg { width: 24px; height: 24px; fill: var(--bs-primary); }
-    .it-card .num { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 700; color: var(--bs-primary); }
-    .it-card .lbl { font-size: .875rem; color: var(--bs-secondary); margin-top: 4px; }
+    /* HIGHLIGHT */
+    .highlight{background:#fff;border-radius:4px;box-shadow:var(--shadow);padding:28px 36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .hl-left{display:flex;align-items:center;gap:16px}
+    .hl-icon{width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .hl-icon svg{width:22px;height:22px;fill:#fff}
+    .highlight h3{font-size:1rem}.highlight p{color:var(--secondary);font-size:.889rem}
+    .btn{display:inline-flex;align-items:center;gap:6px;background:var(--primary);color:#fff;padding:10px 24px;border-radius:4px;font-size:.889rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:background .15s}
+    .btn:hover{background:var(--primary-dark);color:#fff;text-decoration:none}
+    .btn svg{width:14px;height:14px;fill:#fff}
 
-    /* ── HIGHLIGHT ── */
-    .it-highlight { background: #fff; border-radius: 4px; box-shadow: var(--card-shadow); padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .it-highlight-left { display: flex; align-items: center; gap: 16px; }
-    .it-highlight-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--bs-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .it-highlight-icon svg { width: 22px; height: 22px; fill: #fff; }
-    .it-highlight h3 { font-size: 1rem; }
-    .it-highlight p { color: var(--bs-secondary); font-size: .889rem; }
-    .it-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--bs-primary); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 4px; font-size: .889rem; font-weight: 600; transition: background .15s; border: none; cursor: pointer; }
-    .it-btn:hover { background: var(--bs-primary-dark); color: #fff; text-decoration: none; }
-    .it-btn svg { width: 14px; height: 14px; fill: #fff; }
+    /* CTA SECTIONS */
+    .cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .cta-card{background:#fff;border-radius:4px;box-shadow:var(--shadow);padding:32px 28px;transition:all .2s;position:relative;overflow:hidden}
+    .cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary)}
+    .cta-card:hover{box-shadow:var(--shadow-h);transform:translateY(-3px)}
+    .cta-card h3{font-size:1.05rem;margin-bottom:8px}
+    .cta-card p{font-size:.889rem;color:var(--secondary);line-height:1.6;margin-bottom:16px}
+    .cta-card .link{color:var(--primary);font-weight:600;font-size:.889rem;display:inline-flex;align-items:center;gap:4px}
+    .cta-card .link svg{width:14px;height:14px;fill:var(--primary)}
 
-    /* ── FOOTER ── */
-    .it-footer { background: var(--footer-main); color: #fff; padding: 48px 18px 24px; }
-    .it-footer-inner { max-width: 1127px; margin: 0 auto; }
-    .it-footer-brand { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.12); }
-    .it-footer-brand svg { width: 32px; height: 32px; fill: #fff; opacity: .5; }
-    .it-footer-brand .brand-name { font-family: 'Poppins', sans-serif; font-size: 1.111rem; font-weight: 600; color: #fff; }
-    .it-footer-brand .brand-sub { font-size: .8rem; color: rgba(255,255,255,.5); display: block; }
-    .it-footer h4 { font-size: .875rem; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 16px; font-weight: 700; }
-    .it-footer-links { list-style: none; padding: 0; }
-    .it-footer-links li { margin-bottom: 8px; }
-    .it-footer-links a { color: #fff; font-size: .889rem; text-decoration: none; opacity: .7; }
-    .it-footer-links a:hover { opacity: 1; text-decoration: underline; }
-    .it-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
-    .it-footer-small-prints { background: var(--footer-bottom); margin-top: 32px; padding: 16px 18px; }
-    .it-footer-small-prints-inner { max-width: 1127px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: .778rem; color: rgba(255,255,255,.5); }
-    .it-footer-small-prints a { color: rgba(255,255,255,.5); }
+    /* FOOTER */
+    .footer{background:var(--footer);color:#fff;padding:48px 24px 32px}
+    .footer-inner{max-width:1127px;margin:0 auto}
+    .footer-brand{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-brand svg{width:28px;height:28px;fill:#fff;opacity:.5}
+    .footer-brand .fb-name{font-family:'Poppins',sans-serif;font-size:1.111rem;font-weight:600;color:#fff}
+    .footer-brand .fb-sub{font-size:.8rem;color:rgba(255,255,255,.5);display:block}
+    .footer h4{font-size:.875rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px;font-weight:700}
+    .footer ul{list-style:none;padding:0}
+    .footer li{margin-bottom:8px}
+    .footer a{color:#fff;font-size:.889rem;text-decoration:none;opacity:.65}.footer a:hover{opacity:1;text-decoration:underline}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
 
-    @media (max-width: 991px) {
-      .it-hero-inner { grid-template-columns: 1fr; }
-      .it-hero-card { display: none; }
-      .it-card-row { grid-template-columns: repeat(2, 1fr); }
-      .it-footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 767px) {
-      .it-card-row { grid-template-columns: 1fr; }
-      .it-header-center { height: 64px; }
-      .it-header-navbar-inner { flex-wrap: wrap; }
-      .it-footer-grid { grid-template-columns: 1fr; }
-      .it-header-slim { flex-wrap: wrap; gap: 6px; }
-    }
+    @media(max-width:991px){.hero-inner{grid-template-columns:1fr}.hero-card{display:none}.stats{grid-template-columns:repeat(2,1fr)}.cta-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:767px){.stats{grid-template-columns:1fr}.hdr{height:64px}.nav-inner{flex-wrap:wrap;justify-content:flex-start}.footer-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
-<!-- SLIM BAR -->
-<div class="it-header-slim">
-  <div class="it-header-slim-left">
+<div class="slim">
+  <div class="slim-left">
     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
     <span>ITE G. Salvemini &middot; Anno Scolastico 2026/2027</span>
   </div>
   <a href="#">Accedi all'area riservata</a>
 </div>
 
-<!-- CENTER BAR -->
-<div class="it-header-center">
-  <a class="it-brand" href="index.html">
-    <div class="it-brand-logo">
-      <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-    </div>
-    <div>
-      <span class="it-brand-title">Rappre d'Istituto</span>
-      <span class="it-brand-subtitle">Rappresentanti degli Studenti</span>
-    </div>
+<div class="hdr">
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+    <div><span class="brand-name">Rappre d'Istituto</span><span class="brand-sub">Rappresentanti degli Studenti</span></div>
   </a>
-  <div class="it-right-zone">
+  <div class="hdr-right">
     <a href="#">Seguici su</a>
-    <button class="search-btn" aria-label="Cerca">
-      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-    </button>
+    <button class="search-btn" aria-label="Cerca"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
   </div>
 </div>
 
-<!-- NAVBAR -->
-<div class="it-header-navbar">
-  <div class="it-header-navbar-inner">
+<div class="nav">
+  <div class="nav-inner">
     <a href="index.html" class="active">Home</a>
     <a href="rappresentanti.html">Rappresentanti</a>
     <a href="attivita.html">Attività</a>
@@ -185,172 +141,85 @@
   </div>
 </div>
 
-<!-- HERO -->
-<div class="it-hero">
-  <div class="it-hero-inner">
+<div class="hero">
+  <div class="hero-inner">
     <div>
-      <span class="etichetta">Anno Scolastico 2026 / 2027</span>
-      <h1>La voce degli studenti dell'ITE G. Salvemini</h1>
-      <p>Trasparenza, partecipazione e risultati. Quattro rappresentanti eletti dagli studenti per tutelare i loro diritti e migliorare la vita scolastica.</p>
+      <span class="tag">Anno Scolastico 2026 / 2027</span>
+      <h1>La voce degli<br>studenti dell'<em>ITE G. Salvemini</em></h1>
+      <p class="hero-desc">Trasparenza, partecipazione e risultati. Quattro rappresentanti eletti dagli studenti per tutelare i loro diritti e migliorare la vita scolastica.</p>
     </div>
-    <div class="it-hero-card">
-      <div class="it-hero-card-item">
-        <div class="icon-circle">
-          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-        </div>
-        <div>
-          <strong>4 Rappresentanti</strong>
-          <span>Eletti a suffragio universale</span>
-        </div>
+    <div class="hero-card">
+      <div class="hc-item">
+        <div class="hc-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+        <div><strong>4 Rappresentanti</strong><span>Eletti a suffragio universale</span></div>
       </div>
-      <div class="it-hero-card-item">
-        <div class="icon-circle">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-        </div>
-        <div>
-          <strong>5 Assemblee</strong>
-          <span>Democrazia partecipativa</span>
-        </div>
+      <div class="hc-item">
+        <div class="hc-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+        <div><strong>5 Assemblee</strong><span>Democrazia partecipativa</span></div>
       </div>
-      <div class="it-hero-card-item">
-        <div class="icon-circle">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-        </div>
-        <div>
-          <strong>12 Proposte</strong>
-          <span>Approvate e realizzate</span>
-        </div>
+      <div class="hc-item">
+        <div class="hc-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div><strong>12 Proposte</strong><span>Approvate e realizzate</span></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CONTENUTO -->
-<div class="it-container">
-  <div class="it-breadcrumb">
-    <a href="index.html">Home</a>
+<div class="section">
+  <div class="container">
+    <span class="cat">Missione</span>
+    <h2 class="sec-title">Tutelare i diritti degli studenti</h2>
+    <p class="sec-desc">Il Consiglio d'Istituto è l'organo elettivo e democratico che rappresenta gli studenti presso la comunità scolastica. Ascoltiamo, proponiamo e decidiamo insieme.</p>
   </div>
 </div>
 
-<div class="it-section">
-  <div class="it-container">
-    <div class="it-section-header">
-      <div class="category-top"><span class="category">Missione</span></div>
-      <h2 class="it-section-title">Tutelare i diritti degli studenti</h2>
-      <p class="it-section-desc">Il Consiglio d'Istituto è l'organo elettivo e democratico che rappresenta gli studenti presso la comunità scolastica. Ascoltiamo, proponiamo e decidiamo insieme.</p>
+<div class="bg-light" style="padding:64px 0">
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><div class="num">4</div><div class="lbl">Rappresentanti</div></div>
+      <div class="stat"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div><div class="num">5</div><div class="lbl">Assemblee</div></div>
+      <div class="stat"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="num">12</div><div class="lbl">Proposte</div></div>
+      <div class="stat"><div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="num">850+</div><div class="lbl">Studenti</div></div>
     </div>
   </div>
 </div>
 
-<div class="it-section bg-light full-width">
-  <div class="it-container">
-    <div class="it-card-row">
-      <div class="it-card">
-        <div class="it-card-body" style="text-align:center">
-          <div class="it-card-icon" style="margin:0 auto 16px">
-            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-          </div>
-          <div class="num">4</div>
-          <div class="lbl">Rappresentanti</div>
-        </div>
-      </div>
-      <div class="it-card">
-        <div class="it-card-body" style="text-align:center">
-          <div class="it-card-icon" style="margin:0 auto 16px">
-            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          </div>
-          <div class="num">5</div>
-          <div class="lbl">Assemblee</div>
-        </div>
-      </div>
-      <div class="it-card">
-        <div class="it-card-body" style="text-align:center">
-          <div class="it-card-icon" style="margin:0 auto 16px">
-            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          </div>
-          <div class="num">12</div>
-          <div class="lbl">Proposte</div>
-        </div>
-      </div>
-      <div class="it-card">
-        <div class="it-card-body" style="text-align:center">
-          <div class="it-card-icon" style="margin:0 auto 16px">
-            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-          </div>
-          <div class="num">850+</div>
-          <div class="lbl">Studenti</div>
-        </div>
-      </div>
+<div class="section">
+  <div class="container">
+    <div class="cta-grid">
+      <a href="rappresentanti.html" class="cta-card" style="text-decoration:none;color:inherit">
+        <h3>Rappresentanti</h3>
+        <p>Conosci i quattro studenti eletti per rappresentarti nelle sedi istituzionali.</p>
+        <span class="link">Scopri di più <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></span>
+      </a>
+      <a href="attivita.html" class="cta-card" style="text-decoration:none;color:inherit">
+        <h3>Attività</h3>
+        <p>Le principali iniziative e progetti realizzati durante l'anno scolastico.</p>
+        <span class="link">Scopri di più <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></span>
+      </a>
+      <a href="assemblea.html" class="cta-card" style="text-decoration:none;color:inherit">
+        <h3>Assemblea</h3>
+        <p>Cronologia delle assemblee d'istituto con partecipanti e risultati.</p>
+        <span class="link">Scopri di più <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></span>
+      </a>
     </div>
   </div>
 </div>
 
-<div class="it-section">
-  <div class="it-container">
-    <div class="it-highlight">
-      <div class="it-highlight-left">
-        <div class="it-highlight-icon">
-          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-        </div>
-        <div>
-          <h3>Scopri il nostro team</h3>
-          <p>Conosci i quattro rappresentanti eletti dagli studenti.</p>
-        </div>
-      </div>
-      <a href="rappresentanti.html" class="it-btn">Rappresentanti <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></a>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="it-footer">
-  <div class="it-footer-inner">
-    <div class="it-footer-brand">
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
       <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-      <div>
-        <span class="brand-name">ITE G. Salvemini</span>
-        <span class="brand-sub">Rappresentanti degli Studenti</span>
-      </div>
+      <div><span class="fb-name">ITE G. Salvemini</span><span class="fb-sub">Rappresentanti degli Studenti</span></div>
     </div>
-    <div class="it-footer-grid">
-      <div>
-        <h4>Rappre d'Istituto</h4>
-        <p style="font-size:.889rem;opacity:.7;line-height:1.7">Il Consiglio d'Istituto rappresenta gli studenti dell'ITE G. Salvemini nelle sedi istituzionali della scuola.</p>
-      </div>
-      <div>
-        <h4>Pagine</h4>
-        <ul class="it-footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="rappresentanti.html">Rappresentanti</a></li>
-          <li><a href="attivita.html">Attività</a></li>
-          <li><a href="assemblea.html">Assemblea</a></li>
-          <li><a href="numeri.html">Numeri</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contatti</h4>
-        <ul class="it-footer-links">
-          <li><a href="mailto:info@rappre.it">info@rappre.it</a></li>
-          <li><a href="#">Sito dell'Istituto</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legale</h4>
-        <ul class="it-footer-links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Note legali</a></li>
-          <li><a href="#">Accessibilità</a></li>
-        </ul>
-      </div>
+    <div class="footer-grid">
+      <div><h4>Rappre d'Istituto</h4><p style="font-size:.889rem;opacity:.6;line-height:1.7">Il Consiglio d'Istituto rappresenta gli studenti dell'ITE G. Salvemini nelle sedi istituzionali della scuola.</p></div>
+      <div><h4>Pagine</h4><ul><li><a href="index.html">Home</a></li><li><a href="rappresentanti.html">Rappresentanti</a></li><li><a href="attivita.html">Attività</a></li><li><a href="assemblea.html">Assemblea</a></li><li><a href="numeri.html">Numeri</a></li></ul></div>
+      <div><h4>Contatti</h4><ul><li><a href="mailto:info@rappre.it">info@rappre.it</a></li><li><a href="#">Sito dell'Istituto</a></li></ul></div>
+      <div><h4>Legale</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Note legali</a></li><li><a href="#">Accessibilità</a></li></ul></div>
     </div>
   </div>
 </footer>
-<div class="it-footer-small-prints">
-  <div class="it-footer-small-prints-inner">
-    <span>&copy; 2027 ITE G. Salvemini - Tutti i diritti riservati</span>
-    <span>P.IVA 00000000000</span>
-  </div>
-</div>
 
 </body>
 </html>
