@@ -49,7 +49,7 @@
     .hc-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.07)}
     .hc-item:last-child{border:none}
     .hc-icon{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .hc-icon svg{width:22px;height:22px;fill:#7cb9e8}
+    .hc-icon svg{width:22px;height:22px;fill:#fff}
     .hc-item strong{color:#fff;font-size:.95rem;display:block;font-weight:600}
     .hc-item span{color:rgba(255,255,255,.45);font-size:.8rem}
 
@@ -79,19 +79,6 @@
     .hl-icon{width:48px;height:48px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0}
     .hl-icon svg{width:22px;height:22px;fill:#fff}
     .highlight h3{font-size:1rem}.highlight p{color:var(--secondary);font-size:.889rem}
-    .btn{display:inline-flex;align-items:center;gap:6px;background:var(--primary);color:#fff;padding:10px 24px;border-radius:4px;font-size:.889rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:background .15s}
-    .btn:hover{background:var(--primary-dark);color:#fff;text-decoration:none}
-    .btn svg{width:14px;height:14px;fill:#fff}
-
-    /* CTA SECTIONS */
-    .cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .cta-card{background:#fff;border-radius:4px;box-shadow:var(--shadow);padding:32px 28px;transition:all .2s;position:relative;overflow:hidden}
-    .cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary)}
-    .cta-card:hover{box-shadow:var(--shadow-h);transform:translateY(-3px)}
-    .cta-card h3{font-size:1.05rem;margin-bottom:8px}
-    .cta-card p{font-size:.889rem;color:var(--secondary);line-height:1.6;margin-bottom:16px}
-    .cta-card .link{color:var(--primary);font-weight:600;font-size:.889rem;display:inline-flex;align-items:center;gap:4px}
-    .cta-card .link svg{width:14px;height:14px;fill:var(--primary)}
 
     /* FOOTER */
     .footer{background:var(--footer);color:#fff;padding:48px 24px 32px}
@@ -145,7 +132,7 @@
   <div class="hero-inner">
     <div>
       <span class="tag">Anno Scolastico 2026 / 2027</span>
-      <h1>La voce degli<br>studenti dell'<em>ITE G. Salvemini</em></h1>
+      <h1>La voce degli<br>studenti</h1>
       <p class="hero-desc">Trasparenza, partecipazione e risultati. Quattro rappresentanti eletti dagli studenti per tutelare i loro diritti e migliorare la vita scolastica.</p>
     </div>
     <div class="hero-card">
@@ -186,22 +173,15 @@
 
 <div class="section">
   <div class="container">
-    <div class="cta-grid">
-      <a href="rappresentanti.html" class="cta-card" style="text-decoration:none;color:inherit">
-        <h3>Rappresentanti</h3>
-        <p>Conosci i quattro studenti eletti per rappresentarti nelle sedi istituzionali.</p>
-        <span class="link">Scopri di più <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></span>
-      </a>
-      <a href="attivita.html" class="cta-card" style="text-decoration:none;color:inherit">
-        <h3>Attività</h3>
-        <p>Le principali iniziative e progetti realizzati durante l'anno scolastico.</p>
-        <span class="link">Scopri di più <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></span>
-      </a>
-      <a href="assemblea.html" class="cta-card" style="text-decoration:none;color:inherit">
-        <h3>Assemblea</h3>
-        <p>Cronologia delle assemblee d'istituto con partecipanti e risultati.</p>
-        <span class="link">Scopri di più <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></span>
-      </a>
+    <div class="highlight">
+      <div class="hl-left">
+        <div class="hl-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+        <div>
+          <h3>Scopri il nostro team</h3>
+          <p>Conosci i quattro rappresentanti eletti dagli studenti.</p>
+        </div>
+      </div>
+      <a href="rappresentanti.html" class="btn">Rappresentanti <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></a>
     </div>
   </div>
 </div>
